@@ -1,0 +1,7 @@
+{
+  "name": "Travel-log-devmobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
