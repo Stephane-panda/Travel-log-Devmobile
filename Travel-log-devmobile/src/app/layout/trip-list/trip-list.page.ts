@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ViewDidEnter } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-trip-list',
@@ -25,6 +26,10 @@ export class TripListPage implements OnInit {
 
 
   ngOnInit() {
+    const url = `${environment.apiUrl}/trips`;
+    this.http.get(url).subscribe((trips) => {
+      console.log(`Trips loaded`, trips);
+    });
   }
 
 }

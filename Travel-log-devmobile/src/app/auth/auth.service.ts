@@ -9,6 +9,7 @@ import { AuthRequest } from '../models/auth-request';
 import { Observable, ReplaySubject, from } from 'rxjs';
 import { delayWhen, map } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
+import { environment } from 'src/environments/environment';
 
 /**
  * Authentication service for login/logout.
@@ -46,7 +47,8 @@ export class AuthService {
   }
 
   logIn(authRequest: AuthRequest): Observable<User> {
-    const authUrl = 'https://greenandgreens-travel-log.herokuapp.com/api/auth';
+    // TODO: replace the hardcoded API URL by the one from the environment config.
+    const authUrl = `${environment.apiUrl}/auth`;
     return this.http.post<AuthResponse>(authUrl, authRequest).pipe(
       map((auth) => {
         this.authSource.next(auth);
