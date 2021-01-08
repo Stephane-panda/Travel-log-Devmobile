@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, ReplaySubject } from "rxjs";
+import { from, Observable, ReplaySubject } from "rxjs";
 import { map } from "rxjs/operators";
 import { Storage } from "@ionic/storage";
 
@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   private saveAuth(auth: AuthResponse): Observable<void> {
-    return from(this.storage.set('auth', auth));
+    return from (this.storage.set('auth', auth));
   }
 
   getUser(): Observable<User> {
