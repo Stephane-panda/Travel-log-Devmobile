@@ -32,6 +32,10 @@ export class AuthService {
     return this.auth$.pipe(map((auth) => Boolean(auth)));
   }
 
+  private saveAuth(auth: AuthResponse): Observable<void> {
+    return from(this.storage.set('auth', auth));
+  }
+
   getUser(): Observable<User> {
     return this.auth$.pipe(map((auth) => auth?.user));
   }
@@ -51,13 +55,9 @@ export class AuthService {
     );
   }
 
-  // private saveAuth(auth: AuthResponse): Observable<void> {
-  //   return from(this.storage.set('auth', auth));
-  // }
-
-  // logOut() {
-  //   this.authSource.next();
-  //   this.storage.remove('auth');
-  //   console.log('User logged out');
-  // }
+  logOut() {
+    this.authSource.next();
+    this.storage.remove('auth');
+    console.log('User logged out');
+  }
 }
