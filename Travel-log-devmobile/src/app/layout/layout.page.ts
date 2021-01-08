@@ -16,10 +16,10 @@ export class LayoutPage {
   tabs: PageTab[];
 
   constructor() { this.tabs = [
-      { title: "New Trip", icon: "add", path: "create-trip" },
-      { title: "Places Map", icon: "map", path: "places-map" },
-      { title: "Trip List", icon: "list", path: "trip-list" },
-    ];}
+      { title: 'Nouvelle Balades', icon: 'add', path: 'create-trip' },
+      { title: 'Cartes des parcs', icon: 'map', path: 'places-map' },
+      { title: 'Listes des balades', icon: 'list', path: 'trip-list' },
+    ]; }
 
-  
+
 }
