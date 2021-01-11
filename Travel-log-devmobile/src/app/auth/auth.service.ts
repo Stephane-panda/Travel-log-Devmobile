@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { AuthResponse } from '../models/auth-response';
 import { User } from '../models/user';
 import { AuthRequest } from '../models/auth-request';
+import { RegisterRequest } from '../models/register-request';
 
 import { Observable, ReplaySubject, from } from 'rxjs';
 import { delayWhen, map } from 'rxjs/operators';
@@ -16,6 +17,7 @@ import { environment } from 'src/environments/environment';
  */
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+
   private auth$: Observable<AuthResponse>;
   private authSource: ReplaySubject<AuthResponse>;
 
@@ -29,6 +31,11 @@ export class AuthService {
     this.authSource.next(auth);
   });
   }
+
+  register(register: RegisterRequest) {
+return this.http.post(environment.apiUrl + '/users', register);
+}
+
 
   isAuthenticated(): Observable<boolean> {
     return this.auth$.pipe(map((auth) => Boolean(auth)));
@@ -50,6 +57,8 @@ export class AuthService {
     // TODO: replace the hardcoded API URL by the one from the environment config.
     const authUrl = `${environment.apiUrl}/auth`;
     return this.http.post<AuthResponse>(authUrl, authRequest).pipe(
+      // Delay the observable stream while persisting the authentication response.
+    delayWhen(auth => this.saveAuth(auth)),
       map((auth) => {
         this.authSource.next(auth);
         console.log(`User ${auth.user.name} logged in`);

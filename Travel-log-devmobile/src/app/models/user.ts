@@ -5,4 +5,4 @@ export class User {
   tripsCount: number;
   createdAt: string;
   updatedAt: string;
-} 
+}

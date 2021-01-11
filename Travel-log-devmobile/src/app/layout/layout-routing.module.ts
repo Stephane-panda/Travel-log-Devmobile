@@ -6,37 +6,37 @@ import { LayoutPage } from './layout.page';
 const routes: Routes = [
   {
      // Default route
-    path: "",
+    path: '',
     component: LayoutPage,
     children: [
       {
         // Route that loads the CreateTrip module
-        path: "create-trip",
+        path: 'create-trip',
         loadChildren: () =>
-          import("./create-trip/create-trip.module").then(
+          import('./create-trip/create-trip.module').then(
             (m) => m.CreateTripPageModule
           ),
       },
       {
         // Route that loads the PlacesMap module
-        path: "places-map",
+        path: 'places-map',
         loadChildren: () =>
-          import("./places-map/places-map.module").then(
+          import('./places-map/places-map.module').then(
             (m) => m.PlacesMapPageModule
           ),
       },
       {
         // Route that loads the TripList module
-        path: "trip-list",
+        path: 'trip-list',
         loadChildren: () =>
-          import("./trip-list/trip-list.module").then(
+          import('./trip-list/trip-list.module').then(
             (m) => m.TripListPageModule
           ),
       },
       {
-        path: "",
-        redirectTo: "trip-list",
-        pathMatch: "full",
+        path: '',
+        redirectTo: 'trip-list',
+        pathMatch: 'full',
       },
     ],
   }
