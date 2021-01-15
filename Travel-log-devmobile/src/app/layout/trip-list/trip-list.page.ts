@@ -12,17 +12,17 @@ import { Trip } from 'src/app/models/trip';
   templateUrl: './trip-list.page.html',
   styleUrls: ['./trip-list.page.scss'],
 })
-export class TripListPage implements OnInit {
- 
+export class TripListPage  {
+
   trips: Trip[];
 
   constructor( // Inject the AuthService
-  private tripService : TripService) { }
+  private tripService: TripService) { }
 
-  ngOnInit() {
-    this.tripService.getTrips().subscribe((trips)=>{
-      this.trips=trips; 
+  ionViewDidEnter() {
+    this.tripService.getTrips().subscribe((trips) => {
+      this.trips = trips;
     });
   }
-
+/* /!\ion view did entrer refreche la liste  */
 }
