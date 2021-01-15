@@ -1,0 +1,13 @@
+{
+  "appId": "ch.heig.travellog.app",
+  "appName": "travel-app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
