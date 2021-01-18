@@ -3,33 +3,26 @@ import { HttpClient } from '@angular/common/http';
 import { ViewDidEnter } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { environment } from 'src/environments/environment';
+import { TripService } from 'src/app/services/trip.service';
+import { Trip } from 'src/app/models/trip';
+
 
 @Component({
   selector: 'app-trip-list',
   templateUrl: './trip-list.page.html',
   styleUrls: ['./trip-list.page.scss'],
 })
-export class TripListPage implements OnInit {
+export class TripListPage  {
+
+  trips: Trip[];
 
   constructor( // Inject the AuthService
-    private auth: AuthService,
-    // Inject the HTTP client
-    public http: HttpClient) { }
+  private tripService: TripService) { }
 
-    ionViewDidEnter(): void {
-    // Make an HTTP request to retrieve the trips.
-    const url = 'https://greenandgreens-travel-log.herokuapp.com/api/trips';
-    this.http.get(url).subscribe((trips) => {
-      console.log(`Trips loaded`, trips);
+  ionViewDidEnter() {
+    this.tripService.getTrips().subscribe((trips) => {
+      this.trips = trips;
     });
   }
-
-
-  ngOnInit() {
-    const url = `${environment.apiUrl}/trips`;
-    this.http.get(url).subscribe((trips) => {
-      console.log(`Trips loaded`, trips);
-    });
-  }
-
+/* /!\ion view did entrer refreche la liste  */
 }

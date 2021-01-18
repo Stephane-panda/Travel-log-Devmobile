@@ -12,6 +12,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<ion-content class="ion-padding"> Let's create a trip. </ion-content>
+<ion-content color="primary">
+  <form #form="ngForm" (ngSubmit)="saveTrip()">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Create a trips</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input name="title" type="text" placeholder="title" [(ngModel)]="createtripRequest.title" required>
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="desc" type="text" placeholder="description" [(ngModel)]="createtripRequest.description"
+                required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Create</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
+
+
