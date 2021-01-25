@@ -14,11 +14,13 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 import { IonicStorageModule } from '@ionic/storage';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot(), ],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot(), Ng2SearchPipeModule],
   providers: [
     StatusBar,
     SplashScreen,
