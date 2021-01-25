@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 // Interface that represent a tab data.
 export interface PageTab {
@@ -15,11 +15,11 @@ export interface PageTab {
 export class LayoutPage {
   tabs: PageTab[];
 
-  constructor() { this.tabs = [
-      { title: 'Nouvelle Balades', icon: 'add', path: 'create-trip' },
-      { title: 'Cartes des parcs', icon: 'map', path: 'places-map' },
-      { title: 'Listes des balades', icon: 'list', path: 'trip-list' },
-    ]; }
-
-
+  constructor() {
+    this.tabs = [
+      { title: 'Balades', icon: 'map', path: 'trip-list' },
+      { title: 'Ajouter une balade', icon: 'add', path: 'create-trip' },
+      { title: 'Mon compte', icon: 'person', path: 'places-map' },
+    ];
+  }
 }

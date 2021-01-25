@@ -30,4 +30,13 @@ export class TripListPage  {
       this.trips = trips;
     });
   }
+  
+  cancelSearch() {
+    this.searchValue = "";
+    this.getListTrips();
+  }
+
+  viewTripDetails() {
+    console.log("hihi");
+  }
 }
