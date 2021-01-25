@@ -1,9 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Liste des balade</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Liste des balade</ion-title>
+      </ion-toolbar>
+      <ion-toolbar>
+        <ion-searchbar placeholder="Chercher"[(ngModel)]="searchValue" (ionInput)="getListTrips()"></ion-searchbar>
+      </ion-toolbar>
+</ion-header>,
+    <ion-content fullscreen>
+        <app-trip *ngFor='let trip of trips' [trip]="trip"></app-trip>
+    </ion-content>
 
-<ion-content>
-  <app-trip *ngFor='let trip of trips' [trip]="trip"></app-trip>
-</ion-content>
