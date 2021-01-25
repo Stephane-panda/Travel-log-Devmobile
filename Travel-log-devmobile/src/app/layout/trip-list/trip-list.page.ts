@@ -20,6 +20,7 @@ export class TripListPage  {
   constructor( // Inject the AuthService
   private tripService: TripService) { }
 
+  /* /!\ion view did entrer refreche la liste  */
   ionViewDidEnter() {
     this.getListTrips();
   }
@@ -29,7 +30,4 @@ export class TripListPage  {
       this.trips = trips;
     });
   }
-
-
-/* /!\ion view did entrer refreche la liste  */
 }
