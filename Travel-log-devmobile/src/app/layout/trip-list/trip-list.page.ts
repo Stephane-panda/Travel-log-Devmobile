@@ -15,14 +15,21 @@ import { Trip } from 'src/app/models/trip';
 export class TripListPage  {
 
   trips: Trip[];
+  searchValue: string;
 
   constructor( // Inject the AuthService
   private tripService: TripService) { }
 
   ionViewDidEnter() {
-    this.tripService.getTrips().subscribe((trips) => {
+    this.getListTrips();
+  }
+
+  getListTrips() {
+    this.tripService.getTrips(this.searchValue).subscribe((trips) => {
       this.trips = trips;
     });
   }
+
+
 /* /!\ion view did entrer refreche la liste  */
 }
