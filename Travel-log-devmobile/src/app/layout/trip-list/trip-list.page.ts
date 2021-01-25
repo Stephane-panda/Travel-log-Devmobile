@@ -17,6 +17,7 @@ export class TripListPage  {
   trips: Trip[];
   searchValue: string;
 
+
   constructor( // Inject the AuthService
   private tripService: TripService) { }
 
@@ -30,6 +31,12 @@ export class TripListPage  {
     });
   }
 
+  cancelSearch() {
+    console.log("blabla");
+    this.searchValue = "";
+    this.getListTrips();
+  }
 
-/* /!\ion view did entrer refreche la liste  */
-}
+  }
+
+
