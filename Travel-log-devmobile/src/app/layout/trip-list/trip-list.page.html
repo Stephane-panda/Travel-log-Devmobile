@@ -1,20 +1,8 @@
-<!-- <ion-header>
+<ion-header translucent>
   <ion-toolbar>
     <ion-title>Liste des balade</ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content>
+</ion-header>,
+<ion-content fullscreen>
   <app-trip *ngFor='let trip of trips' [trip]="trip"></app-trip>
-</ion-content> -->
-<!DOCTYPE html>
-<html lang="en">
-
-  <ion-header translucent>
-    <ion-toolbar>
-      <ion-title>Card</ion-title>
-    </ion-toolbar>
-  </ion-header>,
-  <ion-content fullscreen>
-        <app-trip *ngFor='let trip of trips' [trip.description]="trip"></app-trip>
-  </ion-content>
+</ion-content>
