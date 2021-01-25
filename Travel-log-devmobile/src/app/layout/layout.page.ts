@@ -19,7 +19,7 @@ export class LayoutPage {
     this.tabs = [
       { title: 'Balades', icon: 'map', path: 'trip-list' },
       { title: 'Ajouter une balade', icon: 'add', path: 'create-trip' },
-      { title: 'Mon compte', icon: 'person', path: 'places-map' },
+      { title: 'Mon compte', icon: 'person', path: 'my-account' },
     ];
   }
 }
