@@ -26,10 +26,10 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
-  @font-face {   
-    font-family: 'Open Sans';   
+@font-face {
+    font-family: 'Open Sans';
     src: url('../src/assets/fonts/OpenSans-Regular.ttf');
-  }
+}
 
 ion-toolbar,
 ion-header {
@@ -38,6 +38,6 @@ ion-header {
 
 .has-header {
     top: 70px;
-    position:absolute;
+    position: absolute;
     width: 100%;
-  }  
+}
