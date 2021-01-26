@@ -233,19 +233,19 @@
 }
 
 .roundedInput {
-  --border-radius: 15px;
+  border-radius: 15px;
   margin-bottom: 10px;
   font-size: 15px;
-  --highligt-heigh: 0px;
+  box-shadow: 0 2px 2px 0 var(--ion-color-medium);
  }
 
  ion-input{
    display: block;
    width: 100%;
    background: transparent;
-   border: none ;
-   outline: none;
+
  }
+
 
  ion-button{
 --border-radius: 25px;
@@ -255,15 +255,9 @@ font-size: 22px;
 
  h1{
   font-weight: 800;
-  margin:30px;
-  margin-bottom: 15%;
+
  }
 
- #form{
-   margin-top: 15%;
-   padding-left: 30px;
-   padding-right: 30px;
- }
 
 
 
