@@ -230,3 +230,12 @@
     --ion-card-background: #1e1e1e;
   }
 }
+
+.roundedInput {
+  --border-radius: 30px;
+  --border-width: 1px;
+  --box-shadow: 5px gray;
+  --highlight-height: 0;
+  --background: #f8f9fa;
+  margin-bottom: 10px;
+ }
