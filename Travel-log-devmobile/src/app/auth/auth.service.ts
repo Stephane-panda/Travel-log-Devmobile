@@ -24,17 +24,17 @@ export class AuthService {
   constructor(private http: HttpClient, private storage: Storage) {
     this.authSource = new ReplaySubject(1);
     this.auth$ = this.authSource.asObservable();
-  // this.authSource.next(null); <-- REMOVE THIS LINE
-  // Load the stored authentication response from storage when the app starts.
+    // this.authSource.next(null); <-- REMOVE THIS LINE
+    // Load the stored authentication response from storage when the app starts.
     this.storage.get('auth').then(auth => {
-    // Emit the loaded value into the auth$ stream.
-    this.authSource.next(auth);
-  });
+      // Emit the loaded value into the auth$ stream.
+      this.authSource.next(auth);
+    });
   }
 
   register(register: RegisterRequest) {
-return this.http.post(environment.apiUrl + '/users', register);
-}
+    return this.http.post(environment.apiUrl + '/users', register);
+  }
 
 
   isAuthenticated(): Observable<boolean> {
@@ -42,8 +42,8 @@ return this.http.post(environment.apiUrl + '/users', register);
   }
 
   private saveAuth(auth: AuthResponse): Observable<void> {
-  return from(this.storage.set('auth', auth));
-}
+    return from(this.storage.set('auth', auth));
+  }
 
   getUser(): Observable<User> {
     return this.auth$.pipe(map((auth) => auth?.user));
@@ -54,11 +54,10 @@ return this.http.post(environment.apiUrl + '/users', register);
   }
 
   logIn(authRequest: AuthRequest): Observable<User> {
-    // TODO: replace the hardcoded API URL by the one from the environment config.
     const authUrl = `${environment.apiUrl}/auth`;
     return this.http.post<AuthResponse>(authUrl, authRequest).pipe(
       // Delay the observable stream while persisting the authentication response.
-    delayWhen(auth => this.saveAuth(auth)),
+      delayWhen(auth => this.saveAuth(auth)),
       map((auth) => {
         this.authSource.next(auth);
         console.log(`User ${auth.user.name} logged in`);
@@ -68,9 +67,9 @@ return this.http.post(environment.apiUrl + '/users', register);
   }
 
   logOut() {
-  this.authSource.next();
-  // Remove the stored authentication response from storage when logging out.
-  this.storage.remove('auth');
-  console.log('User logged out');
+    this.authSource.next();
+    // Remove the stored authentication response from storage when logging out.
+    this.storage.remove('auth');
+    console.log('User logged out');
   }
 }
