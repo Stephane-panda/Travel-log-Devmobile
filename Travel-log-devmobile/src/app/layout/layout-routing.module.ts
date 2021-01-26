@@ -18,11 +18,11 @@ const routes: Routes = [
           ),
       },
       {
-        // Route that loads the PlacesMap module
-        path: 'places-map',
+        // Route that loads the Account module
+        path: 'my-account',
         loadChildren: () =>
-          import('./places-map/places-map.module').then(
-            (m) => m.PlacesMapPageModule
+          import('./user-account/user-account.module').then(
+            (m) => m.UserAccountPageModule
           ),
       },
       {
@@ -39,6 +39,10 @@ const routes: Routes = [
         pathMatch: 'full',
       },
     ],
+  },
+  {
+    path: 'user-account',
+    loadChildren: () => import('./user-account/user-account.module').then( m => m.UserAccountPageModule)
   }
 ];
 
