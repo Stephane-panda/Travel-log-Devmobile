@@ -18,7 +18,7 @@ export class LayoutPage {
   constructor() {
     this.tabs = [
       { title: 'Balades', icon: 'map', path: 'trip-list' },
-      { title: 'Ajouter une balade', icon: 'add', path: 'create-trip' },
+      { title: 'Ajouter une balade', icon: 'add-circle', path: 'create-trip' },
       { title: 'Mon compte', icon: 'person', path: 'my-account' },
     ];
   }

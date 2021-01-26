@@ -39,3 +39,13 @@
 //     font-family: 'Open Sans';   
 //     src: url('../assets/fonts/OpenSans-Bold.ttf');
 //   }
+ion-toolbar,
+ion-header {
+    --min-height: 70px;
+}
+
+.has-header {
+    top: 70px;
+    position:absolute;
+    width: 100%;
+  }  

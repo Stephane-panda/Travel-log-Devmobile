@@ -1,26 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Ajouter une balade</ion-title>
-
-<!-- Logout button -->
+<!-- Logout button
 <ion-buttons slot="end">
   <ion-button (click)="logOut()">
     <ion-icon name="log-out"></ion-icon>
   </ion-button>
-</ion-buttons>
+</ion-buttons> -->
 
-  </ion-toolbar>
-</ion-header>
-
-<ion-content color="tertiary">
-  
+<ion-content color="tertiary" class="has-header">
+  <ion-text color="dark">
+    <h1>Ajouter une balade</h1>
+  </ion-text>
   <form #form="ngForm" (ngSubmit)="saveTrip()">
     <ion-grid>
       <ion-row color="dark" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <ion-text color="dark">
-            <h3>Ajouter une balade</h3>
-          </ion-text>
           <div padding>
             <ion-item class="roundedInput">
               <ion-input name="title" type="text" placeholder="Titre" [(ngModel)]="createtripRequest.title" required>
