@@ -36,10 +36,41 @@ ion-header {
     --min-height: 70px;
 }
 
+ion-tab-bar {
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+ion-input {
+    display: block;
+    width: 100%;
+    background: transparent;
+}
+
+ion-button {
+    --border-radius: 25px;
+    font-weight: 800;
+    font-size: 22px;
+    // box-shadow: 0px 5px 10px #FC8C29;
+}
+
+ion-card-title {
+    font-size: 25px;
+}
+
+ion-card-content {
+    font-size : 18px;
+}
+
 .has-header {
     top: 70px;
     position: absolute;
     width: 100%;
+}
+
+.has-tap-bar {
+    bottom: 100px;
+    position: absolute;
 }
 
 body {
@@ -53,19 +84,7 @@ body {
     box-shadow: 0 2px 2px 0 var(--ion-color-medium);
 }
 
-ion-input {
-    display: block;
-    width: 100%;
-    background: transparent;
-
-}
-
-ion-button {
-    --border-radius: 25px;
-    font-weight: 800;
-    font-size: 22px;
-}
-
 h1 {
     font-weight: 800;
+    font-size: 30px;
 }
