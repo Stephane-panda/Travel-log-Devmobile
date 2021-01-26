@@ -11,20 +11,21 @@
   </ion-text>
   <form #form="ngForm" (ngSubmit)="saveTrip()">
     <ion-grid>
+  
       <ion-row color="dark" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
           <div padding>
-            <ion-item class="roundedInput">
+            <ion-item class="roundedInput" padding>
               <ion-input name="title" type="text" placeholder="Titre" [(ngModel)]="createtripRequest.title" required>
               </ion-input>
             </ion-item>
-            <ion-item class="roundedInput">
+            <ion-item class="roundedInput" padding>
               <ion-input name="desc" type="text" placeholder="Description" [(ngModel)]="createtripRequest.description"
                 required></ion-input>
             </ion-item>
           </div>
           <div padding>
-            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" color="primary" shape="round">Ajouter une balade</ion-button>
+            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" color="primary" >Ajouter une balade</ion-button>
           </div>
         </ion-col>
       </ion-row>

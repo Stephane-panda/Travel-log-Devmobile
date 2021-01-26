@@ -145,6 +145,7 @@
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
+    font-family: 'Open Sans';
   }
 
   /*
@@ -232,10 +233,37 @@
 }
 
 .roundedInput {
-  --border-radius: 30px;
-  --border-width: 1px;
-  --box-shadow: 5px gray;
-  --highlight-height: 0;
-  --background: #f8f9fa;
+  --border-radius: 15px;
   margin-bottom: 10px;
+  font-size: 15px;
+  --highligt-heigh: 0px;
  }
+
+ ion-input{
+   display: block;
+   width: 100%;
+   background: transparent;
+   border: none ;
+   outline: none;
+ }
+
+ ion-button{
+--border-radius: 25px;
+font-weight: 800;
+font-size: 22px;
+ }
+
+ h1{
+  font-weight: 800;
+  margin:30px;
+  margin-bottom: 15%;
+ }
+
+ #form{
+   margin-top: 15%;
+   padding-left: 30px;
+   padding-right: 30px;
+ }
+
+
+

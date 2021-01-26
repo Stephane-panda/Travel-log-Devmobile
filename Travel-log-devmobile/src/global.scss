@@ -25,20 +25,12 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-// @font-face {   
-//     font-family: 'Open Sans';   
-//     src: url('../assets/fonts/OpenSans-ExtraBold.ttf');
-//   }
 
-//   @font-face {   
-//     font-family: 'Open Sans';   
-//     src: url('../assets/fonts/OpenSans-Regular.ttf');
-//   }
+  @font-face {   
+    font-family: 'Open Sans';   
+    src: url('../src/assets/fonts/OpenSans-Regular.ttf');
+  }
 
-//   @font-face {   
-//     font-family: 'Open Sans';   
-//     src: url('../assets/fonts/OpenSans-Bold.ttf');
-//   }
 ion-toolbar,
 ion-header {
     --min-height: 70px;
