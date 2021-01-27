@@ -35,7 +35,6 @@ export class AuthService {
     return this.http.post(environment.apiUrl + '/users', register);
   }
 
-
   isAuthenticated(): Observable<boolean> {
     return this.auth$.pipe(map((auth) => Boolean(auth)));
   }
@@ -60,15 +59,9 @@ export class AuthService {
       map((auth) => {
         this.authSource.next(auth);
         console.log(`User ${auth.user.name} logged in`);
-        this.getUserConnected();
         return auth.user;
       })
     );
-  }
-
-  async getUserConnected() {
-    console.log(this.storage.get("auth"));
-    return await(this.storage.get("auth"));
   }
 
   logOut() {

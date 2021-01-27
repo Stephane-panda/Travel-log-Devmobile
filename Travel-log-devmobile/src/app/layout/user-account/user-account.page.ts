@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/auth/auth.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-user-account',
@@ -8,10 +9,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 
 export class UserAccountPage {
+  user: User;
 
-  constructor(private userService: UserService) { }
-
-  getUserConnected() {
-    return this.userService.getUserConnected();
+  constructor(private authService: AuthService) {
+    this.authService.getUser().subscribe(user => this.user = user);
   }
 }

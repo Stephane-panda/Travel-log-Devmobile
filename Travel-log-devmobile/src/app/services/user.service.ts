@@ -8,7 +8,7 @@ export class UserService {
 
   constructor(private authService: AuthService) { }
 
-  getUserConnected() {
-    return this.authService.getUserConnected();
+  getUser() {
+    return this.authService.getUser().subscribe();
   }
 }
