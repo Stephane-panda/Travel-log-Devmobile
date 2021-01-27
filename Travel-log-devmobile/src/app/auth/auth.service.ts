@@ -60,9 +60,15 @@ export class AuthService {
       map((auth) => {
         this.authSource.next(auth);
         console.log(`User ${auth.user.name} logged in`);
+        this.getUserConnected();
         return auth.user;
       })
     );
+  }
+
+  getUserConnected() {
+    console.log(this.storage.get("auth"));
+    return from(this.storage.get("auth"));
   }
 
   logOut() {
