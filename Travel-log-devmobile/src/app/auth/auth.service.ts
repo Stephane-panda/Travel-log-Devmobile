@@ -66,9 +66,9 @@ export class AuthService {
     );
   }
 
-  getUserConnected() {
+  async getUserConnected() {
     console.log(this.storage.get("auth"));
-    return from(this.storage.get("auth"));
+    return await(this.storage.get("auth"));
   }
 
   logOut() {

@@ -12,7 +12,6 @@ export class UserAccountPage {
   constructor(private userService: UserService) { }
 
   getUserConnected() {
-    console.log(this.userService.getUserConnected());
     return this.userService.getUserConnected();
   }
 }
