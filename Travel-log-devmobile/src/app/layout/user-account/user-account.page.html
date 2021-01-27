@@ -1,8 +1,30 @@
 <ion-content color="tertiary" class="has-header">
   <ion-text color="dark">
-    <h1 class="ion-padding">Bonjour, {{user?.name}}</h1>
-    <p class="ion-padding">Ici, tu peux voir les balades que tu as ajoutées, les modifier ou les supprimer.</p>
-    <!-- TODO : Lien sur la page de modification du compte -->
-    <a class="ion-padding" href="">Réglages du compte</a>
+    <h1 class="ion-padding">Bonjour, {{user?.name}} !</h1>
   </ion-text>
+  <!-- TODO : Lien sur la page de modification du compte -->
+  <a class="ion-padding" href="">Réglages du compte</a>
+  <!-- Si le user a déjà créé des balades -->
+  <ion-text color="dark" *ngIf='user?.tripsCount > 0; else elseBlock'>
+    <p class="ion-padding">Ici, tu peux voir les {{user?.tripsCount}} balades que tu as
+      ajoutées, les modifier ou les supprimer.</p>
+    <h2 class="ion-padding">Ma dernière balade</h2>
+  </ion-text>
+  <!-- Sinon -->
+  <ng-template #elseBlock>
+    <ion-text color="dark">
+      <p class="ion-padding">Ici, tu pourras voir les balades que tu auras ajoutées, les modifier ou les supprimer.</p>
+      <p class="ion-padding">Tu n'as pas encore créé de balade, n'hésite pas à en ajouter une !</p>
+    </ion-text>
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- TODO : rediriger sur Ajouter une balade -->
+          <ion-button size="large" type="submit" expand="block">Ajouter une balade</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+
+  <!-- <app-trip *ngFor='let trip of trips' [trip]="trip"></app-trip> -->
 </ion-content>
