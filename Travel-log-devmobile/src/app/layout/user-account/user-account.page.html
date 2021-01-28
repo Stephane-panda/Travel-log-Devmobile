@@ -10,6 +10,8 @@
       ajoutées, les modifier ou les supprimer.</p>
       <h2 class="ion-padding">Ma dernière balade</h2>
       <app-user-trip [trip]="trips[0]"></app-user-trip>
+      <h2 class="ion-padding">Toutes mes balades</h2>
+      <app-user-trip [trip]="trip" *ngFor="let trip of trips"></app-user-trip>
   </ion-text>
   <!-- Sinon -->
   <ng-container *ngIf='trips && trips.length === 0'>
