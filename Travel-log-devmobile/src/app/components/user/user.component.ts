@@ -1,5 +1,6 @@
 import { Component,Input, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
+import { Trip } from 'src/app/models/trip';
 
 @Component({
   selector: 'app-user-account',
@@ -8,7 +9,9 @@ import { User } from 'src/app/models/user';
 })
 export class UserComponent implements OnInit {
   @Input() user: User;
-  constructor() { }
+  @Input() trips: Trip[];
+
+  constructor() {}
 
   ngOnInit() {}
 
