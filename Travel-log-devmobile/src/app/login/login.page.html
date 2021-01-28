@@ -6,16 +6,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content  class="has-header">
+<ion-content class="has-header">
   <ion-text color="dark" class="ion-text-center">
     <h1 class="ion-padding">Te revoilà !</h1>
   </ion-text>
   <form #loginForm="ngForm" (submit)="onSubmit(loginForm)" class="ion-padding">
-    <ion-list>
+    <div>
       <!-- Username input -->
       <ion-item class="roundedInput">
         <ion-label class="input" position="floating">Nom d'utilisateur</ion-label>
-        <ion-input  inputmode="text" #username="ngModel" required="true" name="username"
+        <ion-input inputmode="text" #username="ngModel" required="true" name="username"
           [(ngModel)]="authRequest.username"></ion-input>
       </ion-item>
 
@@ -35,7 +35,7 @@
       <ion-item lines="none" *ngIf="password.invalid && password.touched">
         <ion-text color="danger">Tu dois renseigner un mot de passe</ion-text>
       </ion-item>
-    </ion-list>
+    </div>
 
     <div class="ion-padding">
       <!-- Submit button -->
