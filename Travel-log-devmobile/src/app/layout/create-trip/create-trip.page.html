@@ -9,27 +9,25 @@
   <ion-text color="dark" class="ion-text-center">
     <h1 class="ion-padding">Ajouter une balade</h1>
   </ion-text>
-  <form id="form"#form="ngForm" (ngSubmit)="saveTrip()"class="ion-padding">
-          <div>
-            <ion-item class="roundedInput" padding>
-              <ion-label position="floating">Titre</ion-label>
-              <ion-input name="title" type="text" [(ngModel)]="createtripRequest.title" required>
-              </ion-input>
-            </ion-item>
-            <ion-item class="roundedInput" padding>
-              <ion-label position="floating">Description</ion-label>
-              <ion-input class="input" name="desc" type="text" [(ngModel)]="createtripRequest.description"
-                required></ion-input>
-            </ion-item>
-          </div>
-          <div>
-            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" color="primary">Ajouter une balade</ion-button>
-          </div>
+  <form id="form" #form="ngForm" (ngSubmit)="saveTrip()" class="ion-padding">
+    <div>
+      <ion-item class="roundedInput" padding>
+        <ion-label class="input" position="floating">Titre</ion-label>
+        <ion-input name="title" type="text" [(ngModel)]="createtripRequest.title" required>
+        </ion-input>
+      </ion-item>
+      <ion-item class="roundedInput" padding>
+        <ion-label class="input" position="floating">Description</ion-label>
+        <ion-input name="desc" type="text" [(ngModel)]="createtripRequest.description" required></ion-input>
+      </ion-item>
+    </div>
+    <div>
+      <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" color="primary">Ajouter une balade
+      </ion-button>
+    </div>
   </form>
   <ion-text style="text-align:center;">
     <p text-center>Déjà un compte ? ? <a href="" style="font-weight: 600;" [routerLink]="'/login/'"
         routerDirection="forward">Se connecter</a></p>
   </ion-text>
 </ion-content>
-
-
