@@ -4,7 +4,6 @@ import { TripComponent } from './trip/trip.component';
 import  { UserTripComponent } from './user/user.component';
 
 
-
 @NgModule({
   declarations: [TripComponent, UserTripComponent],
   imports: [

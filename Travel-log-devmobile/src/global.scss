@@ -92,3 +92,16 @@ h1 {
     font-weight: 800;
     font-size: 30px;
 }
+
+.arrow-mini {
+    background-image: url(../src/assets/icon/chevron-forward-outline.svg);
+    height: 20px;
+    max-width: 10px;
+    top: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 0;
+    background-size: cover;
+    position: relative;
+    opacity: 0.4;
+  }
