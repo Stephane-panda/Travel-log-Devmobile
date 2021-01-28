@@ -11,14 +11,14 @@
   </ion-text>
   <form id="form" #form="ngForm" (ngSubmit)="saveTrip()" class="ion-padding">
     <div>
-      <ion-item class="roundedInput" padding>
+      <ion-item lines="none" class="roundedInput" padding>
         <ion-label class="input" position="floating">Titre</ion-label>
         <ion-input name="title" type="text" [(ngModel)]="createtripRequest.title" required>
         </ion-input>
       </ion-item>
-      <ion-item class="roundedInput" padding>
-        <ion-label class="input" position="floating">Description</ion-label>
-        <ion-input name="desc" type="text" [(ngModel)]="createtripRequest.description" required></ion-input>
+      <ion-item lines="none"class="roundedInput" padding>
+        <ion-label lines="none"class="input" position="floating">Description</ion-label>
+        <ion-input lines="none"name="desc" type="text" [(ngModel)]="createtripRequest.description" required></ion-input>
       </ion-item>
     </div>
     <div>
