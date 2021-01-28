@@ -12,10 +12,8 @@ export class TripListPage  {
   trips: Trip[];
   searchValue: string;
 
-  constructor( // Inject the AuthService
-  private tripService: TripService) { }
+  constructor(private tripService: TripService) { }
 
-  /* /!\ion view did entrer refreche la liste  */
   ionViewDidEnter() {
     this.getListTrips();
   }
