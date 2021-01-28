@@ -13,9 +13,9 @@
   <form #loginForm="ngForm" (submit)="onSubmit(loginForm)" class="ion-padding">
     <div>
       <!-- Username input -->
-      <ion-item class="roundedInput">
-        <ion-label class="input" position="floating">Nom d'utilisateur</ion-label>
-        <ion-input inputmode="text" #username="ngModel" required="true" name="username"
+      <ion-item lines="none"class="roundedInput">
+        <ion-label lines="none"class="input" position="floating">Nom d'utilisateur</ion-label>
+        <ion-input lines="none"inputmode="text" #username="ngModel" required="true" name="username"
           [(ngModel)]="authRequest.username"></ion-input>
       </ion-item>
 
@@ -25,9 +25,9 @@
       </ion-item>
 
       <!-- Password input -->
-      <ion-item class="roundedInput">
-        <ion-label class="input" position="floating">Mot de passe</ion-label>
-        <ion-input inputmode="text" #password="ngModel" required="true" type="password" name="password"
+      <ion-item lines="none" class="roundedInput">
+        <ion-label lines="none" class="input" position="floating">Mot de passe</ion-label>
+        <ion-input lines="none" inputmode="text" #password="ngModel" required="true" type="password" name="password"
           [(ngModel)]="authRequest.password"></ion-input>
       </ion-item>
 
