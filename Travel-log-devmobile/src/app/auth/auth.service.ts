@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+
 import { AuthResponse } from '../models/auth-response';
 import { User } from '../models/user';
 import { AuthRequest } from '../models/auth-request';
@@ -35,6 +36,7 @@ export class AuthService {
     return this.http.post(environment.apiUrl + '/users', register);
   }
 
+
   isAuthenticated(): Observable<boolean> {
     return this.auth$.pipe(map((auth) => Boolean(auth)));
   }
@@ -50,14 +52,6 @@ export class AuthService {
   getToken(): Observable<string> {
     return this.auth$.pipe(map((auth) => auth?.token));
   }
-
-
-  // async getUserConnected() {
-  //   let user = await this.storage.get('auth').then(result =>
-  //     result.user);
-  //   console.log(user)
-  //   return user;
-  // }
 
 
   logIn(authRequest: AuthRequest): Observable<User> {
