@@ -53,6 +53,15 @@ export class AuthService {
     return this.auth$.pipe(map((auth) => auth?.token));
   }
 
+
+  // async getUserConnected() {
+  //   let user = await this.storage.get('auth').then(result =>
+  //     result.user);
+  //   console.log(user)
+  //   return user;
+  // }
+
+
   logIn(authRequest: AuthRequest): Observable<User> {
     const authUrl = `${environment.apiUrl}/auth`;
     return this.http.post<AuthResponse>(authUrl, authRequest).pipe(
