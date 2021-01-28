@@ -14,6 +14,6 @@ export class UserService {
   }
 
   getTrips() {
-    return this.tripService.getTripsWithoutSearchBar().subscribe();
+    return this.tripService.getTrips().subscribe();
   }
 }

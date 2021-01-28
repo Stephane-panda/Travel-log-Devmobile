@@ -14,13 +14,16 @@ export class UserAccountPage {
   user: User;
   trips: Trip[];
 
-  constructor(private authService: AuthService, private tripService: TripService) {
-    this.authService.getUser().subscribe(user => this.user = user);
-  }
-
-  getAllTrips() {
-    this.tripService.getTripsWithoutSearchBar().subscribe(trips => this.trips = trips);
-    console.log(this.trips);
+  constructor(private authService: AuthService, private tripService: TripService) {}
+  
+  ionViewDidEnter() {
+    this.authService.getUser().subscribe(user => {
+      this.user = user
+      this.tripService.getTripsByUserId(this.user.id).subscribe(trips => {
+        this.trips = trips
+        this.getLastTrip();
+      })
+    });
   }
 
   getTripsFromUser() {
@@ -30,6 +33,15 @@ export class UserAccountPage {
   }
 
   getLastTrip() {
-
+    this.trips.sort((a, b) => {
+      if (a.createdAt > b.createdAt) {
+        return -1;
+      }
+      else if (a.createdAt === b.createdAt) {
+        return 0;
+      }
+      else {
+        return 1;
+      }});
   }
 }
