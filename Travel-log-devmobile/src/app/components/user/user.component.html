@@ -1,11 +1,8 @@
-</ion-card>
-<ion-list>
+<ion-card>
     <ion-item>
         <ion-label>
-            <div class="align">
-                <ion-text color="primary" style="font-size: 12px;">{{trip.createdAt | date:'longDate':'fr'}}</ion-text>
-                <ion-card-title color="dark">{{ trip.title }}</ion-card-title>
-            </div>
+            <ion-text color="primary" style="font-size: 12px;">{{trip.createdAt | date:'longDate':'fr'}}</ion-text>
+            <ion-card-title color="dark">{{ trip.title }}</ion-card-title>
             <ion-card-content color="dark">
                 {{ trip.description }}
             </ion-card-content>
@@ -14,5 +11,4 @@
             <ion-icon class="arrow-mini"></ion-icon>
         </ion-note>
     </ion-item>
-</ion-list>
 </ion-card>
