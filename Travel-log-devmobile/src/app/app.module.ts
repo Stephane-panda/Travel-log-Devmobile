@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -14,7 +13,11 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 import { IonicStorageModule } from '@ionic/storage';
 
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,10 +26,13 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: HTTP_INTERCEPTORS,
+    {
+      provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
-      multi: true,  }
+      multi: true,
+    },
+    {provide: LOCALE_ID, useValue: "fr" }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

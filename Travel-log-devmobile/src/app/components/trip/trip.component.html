@@ -1,9 +1,10 @@
 <ion-card [routerLink]="['/one-trip/', trip.id]">
-<ion-card-header>
-    <ion-card-title>{{ trip.title }}</ion-card-title>
+  <ion-card-header>
+    <ion-text color="primary" style="font-size: 12px;">{{trip.createdAt | date:'longDate':'fr'}}</ion-text>
+    <ion-card-title color="dark">{{ trip.title }}</ion-card-title>
   </ion-card-header>
-  <ion-card-content>
+  <ion-card-content ion-padding color="dark">
     {{ trip.description }}
-</ion-card-content>
-<img src="https://www.zupimages.net/up/21/04/jv7w.jpeg" style = "max-width:200px;"/>
+  </ion-card-content>
+  <img src="https://www.zupimages.net/up/21/04/jv7w.jpeg" style="max-width:200px;" />
 </ion-card>

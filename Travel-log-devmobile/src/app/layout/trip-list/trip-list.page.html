@@ -1,13 +1,8 @@
-<ion-header translucent>
-  <ion-toolbar>
-    <ion-title>Liste des balade</ion-title>
-  </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar placeholder="Chercher" [(ngModel)]="searchValue" (ionInput)="getListTrips()"
-      (ionClear)="cancelSearch()">
-    </ion-searchbar>
-  </ion-toolbar>
-</ion-header>
-<ion-content fullscreen>
+<ion-content color="tertiary" class="has-header">
+  <ion-text color="dark">
+    <h1 class="ion-padding">Toutes les balade</h1>
+  </ion-text>
+  <ion-searchbar placeholder="Chercher une balade..." [(ngModel)]="searchValue" (ionInput)="getListTrips()" (ionClear)="cancelSearch()">
+  </ion-searchbar>
   <app-trip *ngFor='let trip of trips' [trip]="trip"></app-trip>
 </ion-content>

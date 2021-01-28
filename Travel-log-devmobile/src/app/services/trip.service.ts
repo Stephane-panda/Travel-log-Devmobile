@@ -26,9 +26,16 @@ export class TripService {
     return this.http
     .get<Trip>(environment.apiUrl + '/trips/' + tripid);
   }
+
+
+  getTripsByUserId(searchUserId: string): Observable<Trip[]> {
+    let paramsUrl = new HttpParams();
+    paramsUrl = paramsUrl.set('user', searchUserId);
+    return this.http
+    .get<Trip[]>(environment.apiUrl + '/trips', {params: paramsUrl});
+  }
   createTrip(createtripRequest: CreateTripsRequest) {
-// trip count ++
+    // trip count ++
     return this.http.post(environment.apiUrl + '/trips', createtripRequest);
   }
 }
-

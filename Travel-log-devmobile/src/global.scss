@@ -24,3 +24,86 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../src/assets/fonts/OpenSans-Regular.ttf');
+}
+
+ion-toolbar,
+ion-header {
+    --min-height: 70px;
+}
+
+ion-tab-bar {
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+ion-input {
+    display: block;
+    width: 100%;
+    background: transparent;
+}
+
+ion-button {
+    --border-radius: 25px;
+    font-weight: 800;
+    font-size: 22px;
+    // box-shadow: 0px 5px 10px #FC8C29;
+}
+
+ion-card-title {
+    font-size: 25px;
+}
+
+ion-card-content {
+    font-size: 18px;
+}
+
+.has-header {
+    top: 70px;
+    position: absolute;
+    width: 100%;
+}
+
+.has-tap-bar {
+    bottom: 100px;
+    position: absolute;
+}
+
+body {
+    font-family: 'Open Sans';
+}
+
+.roundedInput {
+    border-radius: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-shadow: 0px 2px 2px 0px rgb(153, 152, 152);
+    border: 1px solid #E0E0E0;
+}
+
+.input {
+    font-weight: 600 !important;
+    color: rgb(202, 201, 201) !important;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.arrow-mini {
+    background-image: url(../src/assets/icon/chevron-forward-outline.svg);
+    height: 20px;
+    max-width: 10px;
+    top: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 0;
+    background-size: cover;
+    position: relative;
+    opacity: 0.4;
+}
