@@ -62,6 +62,11 @@ ion-card-content {
     font-size : 18px;
 }
 
+ion-label{
+  font-weight: 400;
+  font-size: 15px;
+}
+
 .has-header {
     top: 70px;
     position: absolute;
@@ -80,7 +85,6 @@ body {
 .roundedInput {
     border-radius: 15px;
     margin-bottom: 10px;
-    font-size: 15px;
     box-shadow: 0 2px 2px 0 var(--ion-color-medium);
 }
 
@@ -88,3 +92,16 @@ h1 {
     font-weight: 800;
     font-size: 30px;
 }
+
+.arrow-mini {
+    background-image: url(../src/assets/icon/chevron-forward-outline.svg);
+    height: 20px;
+    max-width: 10px;
+    top: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 0;
+    background-size: cover;
+    position: relative;
+    opacity: 0.4;
+  }

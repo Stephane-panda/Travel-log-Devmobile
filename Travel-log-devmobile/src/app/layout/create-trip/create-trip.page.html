@@ -10,25 +10,21 @@
     <h1 class="ion-padding">Ajouter une balade</h1>
   </ion-text>
   <form id="form"#form="ngForm" (ngSubmit)="saveTrip()"class="ion-padding">
-    <ion-grid>
-      <ion-row color="dark" justify-content-center>
-        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <div >
+          <div>
             <ion-item class="roundedInput" padding>
-              <ion-input name="title" type="text" placeholder="Titre" [(ngModel)]="createtripRequest.title" required>
+              <ion-label position="floating">Titre</ion-label>
+              <ion-input name="title" type="text" [(ngModel)]="createtripRequest.title" required>
               </ion-input>
             </ion-item>
             <ion-item class="roundedInput" padding>
-              <ion-input class="input"name="desc" type="text" placeholder="Description" [(ngModel)]="createtripRequest.description"
+              <ion-label position="floating">Description</ion-label>
+              <ion-input class="input" name="desc" type="text" [(ngModel)]="createtripRequest.description"
                 required></ion-input>
             </ion-item>
           </div>
           <div>
             <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" color="primary">Ajouter une balade</ion-button>
           </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
   </form>
 </ion-content>
 

@@ -1,9 +1,18 @@
-<ion-card (click)="viewTripDetails()">
-    <ion-card-header>
-        <ion-text color="primary" style="font-size: 12px;">{{trip.createdAt | date:'longDate':'fr'}}</ion-text>
-        <ion-card-title style="font-weight: 500; font-size: 20px;" color="dark">{{ trip.title }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content color="dark">
-        {{ trip.description }}
-    </ion-card-content>
+</ion-card>
+<ion-list>
+    <ion-item>
+        <ion-label>
+            <div class="align">
+                <ion-text color="primary" style="font-size: 12px;">{{trip.createdAt | date:'longDate':'fr'}}</ion-text>
+                <ion-card-title color="dark">{{ trip.title }}</ion-card-title>
+            </div>
+            <ion-card-content color="dark">
+                {{ trip.description }}
+            </ion-card-content>
+        </ion-label>
+        <ion-note detail slot="end" color="primary">
+            <ion-icon class="arrow-mini"></ion-icon>
+        </ion-note>
+    </ion-item>
+</ion-list>
 </ion-card>
