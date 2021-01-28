@@ -4,8 +4,6 @@ import { TripComponent } from './trip/trip.component';
 import  { UserTripComponent } from './user/user.component';
 import { IonicModule } from '@ionic/angular';
 
-
-
 @NgModule({
   declarations: [TripComponent, UserTripComponent],
   imports: [

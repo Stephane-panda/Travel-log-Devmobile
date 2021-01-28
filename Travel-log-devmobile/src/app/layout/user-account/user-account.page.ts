@@ -20,7 +20,7 @@ export class UserAccountPage {
     this.authService.getUser().subscribe(user => {
       this.user = user
       this.tripService.getTripsByUserId(this.user.id).subscribe(trips => {
-        this.trips = trips
+        this.trips = trips;
         this.getLastTrip();
       })
     });
