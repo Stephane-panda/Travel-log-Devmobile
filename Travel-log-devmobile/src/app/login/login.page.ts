@@ -49,5 +49,6 @@ export class LoginPage {
         console.warn(`Authentication failed: ${err.message}`);
       },
     });
+
   }
 }
