@@ -16,7 +16,5 @@ export class UserAccountPage {
       this.user = user;
       console.log(user)
     })
-
   }
-
 }

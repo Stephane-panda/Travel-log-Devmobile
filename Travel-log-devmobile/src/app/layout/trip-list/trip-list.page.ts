@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ViewDidEnter } from '@ionic/angular';
-import { AuthService } from 'src/app/auth/auth.service';
-import { environment } from 'src/environments/environment';
 import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/trip';
-
 
 @Component({
   selector: 'app-trip-list',
@@ -37,6 +32,5 @@ export class TripListPage  {
   }
 
   viewTripDetails() {
-    console.log("hihi");
   }
 }

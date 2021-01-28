@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-
 import { AuthResponse } from '../models/auth-response';
 import { User } from '../models/user';
 import { AuthRequest } from '../models/auth-request';
@@ -35,7 +34,6 @@ export class AuthService {
   register(register: RegisterRequest) {
     return this.http.post(environment.apiUrl + '/users', register);
   }
-
 
   isAuthenticated(): Observable<boolean> {
     return this.auth$.pipe(map((auth) => Boolean(auth)));

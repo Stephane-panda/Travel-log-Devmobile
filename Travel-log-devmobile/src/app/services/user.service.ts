@@ -6,12 +6,9 @@ import {AuthService} from 'src/app/auth/auth.service';
 })
 export class UserService {
 
-
-  constructor(private authService: AuthService) {
-   }
+  constructor(private authService: AuthService) { }
 
   getUser() {
-    return this.authService.getUserConnected().then(user =>
-      console.log(user));
+    return this.authService.getUser().subscribe();
   }
 }
