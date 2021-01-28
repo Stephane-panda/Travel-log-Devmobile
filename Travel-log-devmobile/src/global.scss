@@ -33,7 +33,7 @@
 
 ion-toolbar,
 ion-header {
-  --min-height: 70px;
+    --min-height: 70px;
 }
 
 ion-tab-bar {
@@ -59,7 +59,7 @@ ion-card-title {
 }
 
 ion-card-content {
-    font-size : 18px;
+    font-size: 18px;
 }
 
 .has-header {
@@ -80,7 +80,16 @@ body {
 .roundedInput {
     border-radius: 15px;
     margin-bottom: 10px;
-    box-shadow: 0 2px 2px 0 var(--ion-color-medium);
+    box-shadow: 1px 1px 1px 1px rgb(182, 181, 181);
+}
+
+div.item-native > div{
+    display: none;
+}
+
+.input {
+    font-weight: 600 !important;
+    color: rgb(202, 201, 201) !important;
 }
 
 h1 {
@@ -99,4 +108,4 @@ h1 {
     background-size: cover;
     position: relative;
     opacity: 0.4;
-  }
+}
