@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/models/user';
 import { TripService } from 'src/app/services/trip.service';
@@ -16,7 +16,11 @@ export class UserAccountPage {
 
   constructor(private authService: AuthService, private tripService: TripService) {
     this.authService.getUser().subscribe(user => this.user = user);
-    this.tripService.getTrips().subscribe(trips => this.trips = trips);
+  }
+
+  getAllTrips() {
+    this.tripService.getTripsWithoutSearchBar().subscribe(trips => this.trips = trips);
+    console.log(this.trips);
   }
 
   getTripsFromUser() {
@@ -26,6 +30,6 @@ export class UserAccountPage {
   }
 
   getLastTrip() {
-    
+
   }
 }
