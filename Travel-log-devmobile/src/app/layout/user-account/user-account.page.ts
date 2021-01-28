@@ -19,7 +19,7 @@ export class UserAccountPage {
   }
 
   getAllTrips() {
-    this.tripService.getTripsWithoutSearchBar().subscribe(trips => this.trips = trips);
+    this.tripService.getTrips().subscribe(trips => this.trips = trips);
     console.log(this.trips);
   }
 

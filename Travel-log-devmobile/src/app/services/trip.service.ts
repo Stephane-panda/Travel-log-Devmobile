@@ -20,10 +20,6 @@ export class TripService {
     .get<Trip[]>(environment.apiUrl + '/trips',{params:paramsUrl});
   }
 
-  getTripsWithoutSearchBar(): Observable<Trip[]> {
-    return this.http.get<Trip[]>(environment.apiUrl + '/trips');
-  }
-
   createTrip(createtripRequest: CreateTripsRequest) {
     return this.http.post(environment.apiUrl + '/trips', createtripRequest);
   }
