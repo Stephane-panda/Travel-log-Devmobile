@@ -8,7 +8,8 @@
   <ion-text color="dark" *ngIf='user?.tripsCount > 0; else elseBlock'>
     <p class="ion-padding">Ici, tu peux voir les {{user?.tripsCount}} balades que tu as
       ajoutées, les modifier ou les supprimer.</p>
-    <h2 class="ion-padding">Ma dernière balade</h2>
+      <h2 class="ion-padding">Ma dernière balade</h2>
+      <app-user [user]="user"></app-user>
   </ion-text>
   <!-- Sinon -->
   <ng-template #elseBlock>
@@ -26,6 +27,5 @@
     </ion-grid>
   </ng-template>
 
-  <!-- <app-user-account [user]="user"></app-user-account> -->
   <!-- <app-trip *ngFor='let trip of trips' [trip]="trip"></app-trip> -->
 </ion-content>

@@ -12,17 +12,17 @@ import { Trip } from 'src/app/models/trip';
 
 export class UserAccountPage {
   user: User;
-  // trips: Trip[];
+  trips: Trip[];
 
   constructor(private authService: AuthService, private tripService: TripService) {
     this.authService.getUser().subscribe(user => this.user = user);
-    // this.tripService.getTrips().subscribe(trips => this.trips = trips);
+    this.tripService.getTrips().subscribe(trips => this.trips = trips);
   }
 
   getTripsFromUser() {
-    // this.trips.filter(function (trips) {
-    //   return trips.userId == this.user.id;
-    // });
+    this.trips.filter(function (trips) {
+      return console.log(trips.userId == this.user.id);
+    });
   }
 
   getLastTrip() {
