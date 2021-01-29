@@ -4,16 +4,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="trip">
 <ion-card>
-  <ion-card-header>
-    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    <ion-card-title>Card Title</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    Keep close to Nature's heart... and break clear away, once in awhile,
-    and climb a mountain or spend a week in the woods. Wash your spirit clean.
-  </ion-card-content>
+  <ion-label>
+            <ion-text line="none" color="primary" style="font-size: 12px;">{{trip?.createdAt | date:'longDate':'fr'}}
+            </ion-text>
+            <ion-card-title line="none"color="dark">{{ trip?.title }}</ion-card-title>
+            <ion-card-content line="none"color="dark">
+                {{ trip?.description }}
+            </ion-card-content>
+        </ion-label>
 </ion-card>
 </ion-content>

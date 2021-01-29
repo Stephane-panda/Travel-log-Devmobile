@@ -1,4 +1,4 @@
-<ion-card style="padding-top: 10px;">
+<ion-card style="padding-top: 10px;" [routerLink]="['/one-trip/', trip.id]">
     <ion-item lines="none">
         <ion-label>
             <ion-text color="primary" style="font-size: 12px;">{{trip.createdAt | date:'longDate':'fr'}}</ion-text>

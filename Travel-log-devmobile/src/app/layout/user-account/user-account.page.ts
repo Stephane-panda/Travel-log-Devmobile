@@ -18,10 +18,10 @@ export class UserAccountPage {
   trips: Trip[];
   userNewName: User;
   nameNew: string;
-  public show: boolean = false;
+  public show = false;
   public buttonName: any = 'Modifier';
-  public buttonColor: any = "primary";
-  public deleteUser: boolean = false;
+  public buttonColor: any = 'primary';
+  public deleteUser = false;
 
   constructor(
     private authService: AuthService,
@@ -31,17 +31,17 @@ export class UserAccountPage {
 
   ionViewDidEnter() {
     this.authService.getUser().subscribe(user => {
-      this.user = user
+      this.user = user;
       this.tripService.getTripsByUserId(this.user.id).subscribe(trips => {
         this.trips = trips;
         this.getLastTrip();
-      })
+      });
     });
   }
 
   getTripsFromUser() {
-    this.trips.filter(function (trips) {
-      return console.log(trips.userId == this.user.id);
+    this.trips.filter(function(trips) {
+      return console.log(trips.userId === this.user.id);
     });
   }
 
@@ -63,12 +63,13 @@ export class UserAccountPage {
     this.show = !this.show;
     this.buttonColor = !this.buttonColor;
     if (this.show) {
-      this.buttonName = "Annuler";
-      this.buttonColor = "primary";
+      this.buttonName = 'Annuler';
+      this.buttonColor = 'primary';
     }
-    else
-      this.buttonName = "Modifier";
-    this.buttonColor = "medium";
+    else {
+      this.buttonName = 'Modifier';
+    }
+    this.buttonColor = 'medium';
     return;
   }
 
@@ -98,7 +99,7 @@ export class UserAccountPage {
       console.warn('Could not delete user', err);
     });
     this.logOut();
-    console.log("Utilisateur supprimé");
+    console.log('Utilisateur supprimé');
   }
 
   showPrompt() {
@@ -132,5 +133,4 @@ export class UserAccountPage {
   logOut() {
     this.authService.logOut();
   }
-  
 }
