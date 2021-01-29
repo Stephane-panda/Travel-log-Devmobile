@@ -2,16 +2,32 @@
   <ion-text color="dark">
     <h1 class="ion-padding">Bonjour, {{user?.name}} !</h1>
   </ion-text>
-  <!-- TODO : Lien sur la page de modification du compte -->
-  <a class="ion-padding" href="">Réglages du compte</a>
+  <ion-text color="dark">
+    <p class="ion-padding">Nom d'utilisateur : {{user?.name}} </p>
+  </ion-text>
+
+  <div class="ion-padding">
+    <ion-button  color="danger" type="submit" >Supprimer</ion-button>
+  </div>
+    <ng-container *ngIf="show">
+        <form #newUserNameForm='ngForm' (submit)='updateUserName(newUserNameForm)'>
+              <input ion-item type='text' placeholder='Nouveau nom' [(ngModel)]='nameNew'
+                name='nameNew' required #userNameNewInput='ngModel' text/>
+                <p *ngIf='userNameNewInput.invalid && userNameNewInput.dirty'>
+                    Le nom d'utilisateur est invalide
+                  </p>
+                <button ion-button full type="submit" [disabled]='newUserNameForm.invalid'>OK</button>
+          </form>
+    </ng-container>
+    <ion-button  (click)='toggleForm()' id="modifyName"color="primary" type="submit" >Modifier</ion-button>
   <!-- Si le user a déjà créé des balades -->
   <ion-text color="dark" *ngIf='trips?.length > 0'>
     <p class="ion-padding">Ici, tu peux voir les {{user?.tripsCount}} balades que tu as
       ajoutées, les modifier ou les supprimer.</p>
-      <h2 class="ion-padding">Ma dernière balade</h2>
-      <app-user-trip [trip]="trips[0]"></app-user-trip>
-      <h2 class="ion-padding">Toutes mes balades</h2>
-      <app-user-trip [trip]="trip" *ngFor="let trip of trips"></app-user-trip>
+    <h2 class="ion-padding">Ma dernière balade</h2>
+    <app-user-trip [trip]="trips[0]"></app-user-trip>
+    <h2 class="ion-padding">Toutes mes balades</h2>
+    <app-user-trip [trip]="trip" *ngFor="let trip of trips"></app-user-trip>
   </ion-text>
   <!-- Sinon -->
   <ng-container *ngIf='trips && trips.length === 0'>

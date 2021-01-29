@@ -8,9 +8,10 @@ import { AuthRequest } from '../models/auth-request';
 import { RegisterRequest } from '../models/register-request';
 
 import { Observable, ReplaySubject, from } from 'rxjs';
-import { delayWhen, map } from 'rxjs/operators';
+import { delayWhen, map,switchMap, first  } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
 import { environment } from 'src/environments/environment';
+
 
 /**
  * Authentication service for login/logout.
@@ -51,6 +52,16 @@ export class AuthService {
 
   getToken(): Observable<string> {
     return this.auth$.pipe(map((auth) => auth?.token));
+  }
+
+  updateUser(updatedUser: User) : Observable<User> {
+    return this.authSource.pipe(first(), switchMap(auth => {
+      auth.user = updatedUser;
+      return this.saveAuth(auth).pipe(map(() => {
+        this.authSource.next(auth);
+        return updatedUser;
+      }))
+    }));
   }
 
 
