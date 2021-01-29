@@ -19,12 +19,15 @@ export class UserAccountPage {
   userNewName: User;
   nameNew: string;
   public show: boolean = false;
+  public buttonName: any = 'Modifier';
+  public buttonColor: any = "primary";
+  public deleteUser: boolean = false;
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private tripService: TripService,
-    private userService:UserService) {}
-  
+    private userService: UserService) { }
+
   ionViewDidEnter() {
     this.authService.getUser().subscribe(user => {
       this.user = user
@@ -51,27 +54,53 @@ export class UserAccountPage {
       }
       else {
         return 1;
-      }});
+      }
+    });
   }
 
   toggleForm() {
     this.show = !this.show;
+    this.buttonColor = !this.buttonColor;
+    if (this.show) {
+      this.buttonName = "Annuler";
+      this.buttonColor = "primary";
+    }
+    else
+      this.buttonName = "Modifier";
+    this.buttonColor = "medium";
     return;
   }
 
-  updateUserName(form: NgForm){
+  toggleConfirmDelete() {
+    this.deleteUser = !this.deleteUser;
+    return;
+  }
+
+  updateUserName(form: NgForm) {
     if (form.valid) {
-      this.userNewName= new User();
+      this.userNewName = new User();
       this.userNewName.name = this.nameNew;
-      console.log("New name:"+ this.userNewName);
+      console.log("New name:" + this.userNewName);
       this.userService.changeName(this.userNewName, this.user.id).subscribe(user => {
         this.authService.updateUser(user).subscribe();
         this.toggleForm();
       }, err => {
         console.warn('Could not change user name');
-      }); 
-
+      });
     }
+  }
 
+  deleteUserAccount() {
+    this.userService.deleteUser(this.user.id).subscribe(user => {
+      this.authService.updateUser(user).subscribe();
+    }, err => {
+      console.warn('Could not delete user', err);
+    });
+    this.logOut();
+    console.log("Utilisateur supprimé");
+  }
+
+  logOut() {
+    this.authService.logOut();
   }
 }

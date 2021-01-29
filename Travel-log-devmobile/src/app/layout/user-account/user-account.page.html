@@ -2,6 +2,10 @@
   <ion-text color="dark">
     <h1 class="ion-padding">Bonjour, {{user?.name}} !</h1>
   </ion-text>
+  <ion-button color="danger" (click)='toggleConfirmDelete()' id="deleteUser">Supprimer</ion-button>
+  <ng-container *ngIf="deleteUser">
+    <button ion-button class="submit-btn" (click)="deleteUserAccount()">Oui, supprimer mon compte.</button>
+</ng-container>
   <ion-text color="dark">
     <p class="ion-padding">Nom d'utilisateur : <span style="color:#70747C;">{{user?.name}}</span></p>
   </ion-text>
@@ -12,16 +16,17 @@
         <ion-label lines="none"class="input" position="floating">Nouveau nom</ion-label>
         <input type='text' [(ngModel)]='nameNew' name='nameNew' required
         #userNameNewInput='ngModel' text/>
-        <p *ngIf='userNameNewInput.invalid && userNameNewInput.dirty'>
+        <p color="danger" *ngIf='userNameNewInput.invalid && userNameNewInput.dirty'>
           Le nom d'utilisateur est invalide
         </p>
-        <button ion-button full type="submit" [disabled]='newUserNameForm.invalid'>Valider</button>
       </ion-item>
+      <div class="ion-text-center" text-center>
+        <ion-button color="primary" full type="submit" [disabled]='newUserNameForm.invalid'>Valider</ion-button>
+      </div>
     </form>
   </ng-container>
   <div class="ion-text-center" text-center>
-    <ion-button (click)='toggleForm()' id="modifyName" color="primary" type="submit">Modifier</ion-button>
-    <ion-button color="danger" type="submit">Supprimer</ion-button>
+    <ion-button (click)='toggleForm()' id="modifyName" color={{buttonColor}} type="submit">{{buttonName}}</ion-button>
   </div>
   <!-- Si le user a déjà créé des balades -->
   <ion-text color="dark" *ngIf='trips?.length > 0'>
@@ -42,7 +47,8 @@
       <ion-row justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
           <!-- TODO : rediriger sur Ajouter une balade -->
-          <ion-button size="large" type="submit" expand="block">Ajouter une balade</ion-button>
+          <ion-button size="large" type="submit" expand="block" [routerLink]="'/create-trip/'"
+          routerDirection="forward">Ajouter une balade</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

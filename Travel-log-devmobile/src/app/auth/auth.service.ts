@@ -78,7 +78,6 @@ export class AuthService {
 
   logOut() {
     this.authSource.next();
-    // Remove the stored authentication response from storage when logging out.
     this.storage.remove('auth');
     console.log('User logged out');
   }
