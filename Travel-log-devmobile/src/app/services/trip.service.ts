@@ -12,22 +12,30 @@ export class TripService {
 
   constructor(private http: HttpClient) { }
 
-  getTrips(searchValue?:string): Observable<Trip[]> {
+  getTrips(searchValue?: string): Observable<Trip[]> {
     // check le observe httpresponse !!!!!!
     let paramsUrl = new HttpParams();
-    if(searchValue)paramsUrl= paramsUrl.set('search',searchValue);
+    if (searchValue) {paramsUrl = paramsUrl.set('search', searchValue); }
     return this.http
-    .get<Trip[]>(environment.apiUrl + '/trips',{params:paramsUrl});
+    .get<Trip[]>(environment.apiUrl + '/trips', {params: paramsUrl});
   }
 
-  getTripsByUserId(searchUserId:string): Observable<Trip[]> {
-    let paramsUrl = new HttpParams();
-    paramsUrl= paramsUrl.set('user', searchUserId);
+   getTrip(tripid: string ): Observable<Trip> {
+    // check le observe httpresponse !!!!!
+
     return this.http
-    .get<Trip[]>(environment.apiUrl + '/trips',{params:paramsUrl});
+    .get<Trip>(environment.apiUrl + '/trips/' + tripid);
   }
-  
+
+
+  getTripsByUserId(searchUserId: string): Observable<Trip[]> {
+    let paramsUrl = new HttpParams();
+    paramsUrl = paramsUrl.set('user', searchUserId);
+    return this.http
+    .get<Trip[]>(environment.apiUrl + '/trips', {params: paramsUrl});
+  }
   createTrip(createtripRequest: CreateTripsRequest) {
+    // trip count ++
     return this.http.post(environment.apiUrl + '/trips', createtripRequest);
   }
 }

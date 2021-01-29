@@ -43,7 +43,16 @@ const routes: Routes = [
   {
     path: 'user-account',
     loadChildren: () => import('./user-account/user-account.module').then( m => m.UserAccountPageModule)
+  },
+  {
+    path: 'create-place',
+    loadChildren: () => import('./create-place/create-place.module').then( m => m.CreatePlacePageModule)
+  },
+  {
+    path: 'one-trip/:id',
+    loadChildren: () => import('./one-trip/one-trip.module').then( m => m.OneTripPageModule)
   }
+
 ];
 
 @NgModule({
