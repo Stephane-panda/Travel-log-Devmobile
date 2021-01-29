@@ -2,8 +2,6 @@
   <ion-text color="dark">
     <h1 class="ion-padding">Bonjour, {{user?.name}} !</h1>
   </ion-text>
-  <!-- TODO : Lien sur la page de modification du compte -->
-  <a class="ion-padding" href="">Réglages du compte</a>
   <!-- Si le user a déjà créé des balades -->
   <ion-text color="dark" *ngIf='trips?.length > 0'>
     <p class="ion-padding">Ici, tu peux voir les {{user?.tripsCount}} balades que tu as
