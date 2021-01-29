@@ -23,9 +23,9 @@ export class TripListPage  {
       this.trips = trips;
     });
   }
-  
+
   cancelSearch() {
-    this.searchValue = "";
+    this.searchValue = '';
     this.getListTrips();
   }
 
