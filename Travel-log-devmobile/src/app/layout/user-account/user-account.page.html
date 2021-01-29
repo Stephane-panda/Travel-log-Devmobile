@@ -1,4 +1,8 @@
 <ion-content color="tertiary" class="has-header">
+  <div class="ion-text-right">
+    <p><a class="deleteLink" (click)='showPrompt()' id="deleteUser">Supprimer mon compte</a></p>
+    <!-- <ion-button class="deleteUserButton" color="danger" (click)='showPrompt()' id="deleteUser">Supprimer</ion-button> -->
+  </div>
   <ion-text color="dark">
     <h1 class="ion-padding">Bonjour, {{user?.name}} !</h1>
   </ion-text>

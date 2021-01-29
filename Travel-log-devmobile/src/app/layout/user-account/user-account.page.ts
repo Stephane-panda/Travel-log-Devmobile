@@ -26,7 +26,8 @@ export class UserAccountPage {
   constructor(
     private authService: AuthService,
     private tripService: TripService,
-    private userService: UserService) { }
+    private userService: UserService,
+    public alertController: AlertController) { }
 
   ionViewDidEnter() {
     this.authService.getUser().subscribe(user => {
@@ -100,7 +101,36 @@ export class UserAccountPage {
     console.log("Utilisateur supprimé");
   }
 
+  showPrompt() {
+    this.alertController.create({
+      header: 'Supprimer le compte?',
+      message: 'La suppression d’une balade est définitive.',
+      cssClass:'buttonCss',
+      buttons: [
+        {
+          text: 'Annuler',
+          cssClass:'annuler',
+          handler: (data: any) => {
+            console.log('Canceled', data);
+          }
+        },
+        {
+          text: 'Supprimer',
+          cssClass:'delete',
+          handler: (data: any) => {
+            this.deleteUserAccount()
+            console.log('super c ok')
+            console.log('Saved Information', data);
+          }
+        }
+      ]
+    }).then(res => {
+      res.present();
+    });
+  }
+
   logOut() {
     this.authService.logOut();
   }
+  
 }

@@ -110,3 +110,16 @@ h1 {
     transform: translateY(-50%);
     font-size: 30px;
 }
+
+.buttonCss{
+    .delete{
+        color:var(--ion-color-danger)!important;
+    }
+}
+
+#deleteUser{
+    font-weight: 500;
+    font-size: 12px;
+    text-decoration: underline;
+    padding-right: 15px;
+}
