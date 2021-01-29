@@ -14,10 +14,9 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 import { IonicStorageModule } from '@ionic/storage';
 
+//Import pour la géolocalisation
 import { Geolocation } from "@ionic-native/geolocation/ngx";
 
-
-//Import pour la géolocalisation
 
 
 @NgModule({
@@ -27,7 +26,7 @@ import { Geolocation } from "@ionic-native/geolocation/ngx";
   providers: [
     StatusBar,
     SplashScreen,
-    Geolocation,
+    Geolocation, //Module de geolocalisation
     { provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true,  }

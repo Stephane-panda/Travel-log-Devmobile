@@ -16,7 +16,6 @@ export class PlacesMapPage implements OnInit {
 
   ngOnInit() {
     //Methode pour récupérer la position de l'utilisateur à l'instant T
-    //this.geolocalition.getCurrentPosition().then((position: Geoposition) => {
      this.geolocalition.getCurrentPosition().then((position: Geoposition) => {
       const coords = position.coords;
       console.log(`L'utilisateur se trouve à la position suivante : ${coords.longitude}, ${coords.latitude}`);
