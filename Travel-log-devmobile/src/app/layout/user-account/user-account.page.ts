@@ -80,7 +80,7 @@ export class UserAccountPage {
     if (form.valid) {
       this.userNewName = new User();
       this.userNewName.name = this.nameNew;
-      console.log("New name:" + this.userNewName);
+      console.log("New name:" + this.userNewName.name);
       this.userService.changeName(this.userNewName, this.user.id).subscribe(user => {
         this.authService.updateUser(user).subscribe();
         this.toggleForm();

@@ -68,11 +68,6 @@ ion-card-content {
     width: 100%;
 }
 
-.has-tap-bar {
-    bottom: 100px;
-    position: absolute;
-}
-
 body {
     font-family: 'Open Sans';
 }
@@ -106,4 +101,12 @@ h1 {
     background-size: cover;
     position: relative;
     opacity: 0.4;
+}
+
+.center-right{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 30px;
 }
