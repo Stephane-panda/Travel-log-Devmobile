@@ -25,10 +25,7 @@ export class AuthService {
   constructor(private http: HttpClient, private storage: Storage) {
     this.authSource = new ReplaySubject(1);
     this.auth$ = this.authSource.asObservable();
-    // this.authSource.next(null); <-- REMOVE THIS LINE
-    // Load the stored authentication response from storage when the app starts.
     this.storage.get('auth').then(auth => {
-      // Emit the loaded value into the auth$ stream.
       this.authSource.next(auth);
     });
   }
@@ -66,7 +63,6 @@ export class AuthService {
   logIn(authRequest: AuthRequest): Observable<User> {
     const authUrl = `${environment.apiUrl}/auth`;
     return this.http.post<AuthResponse>(authUrl, authRequest).pipe(
-      // Delay the observable stream while persisting the authentication response.
       delayWhen(auth => this.saveAuth(auth)),
       map((auth) => {
         this.authSource.next(auth);

@@ -5,7 +5,7 @@ import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/trip';
 import { UserService } from 'src/app/services/user.service';
 import { NgForm } from '@angular/forms';
-
+import { AlertController } from '@ionic/angular'; 
 
 @Component({
   selector: 'app-user-account',
