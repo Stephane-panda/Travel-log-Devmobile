@@ -37,7 +37,6 @@ export class AuthService {
     return this.http.post(environment.apiUrl + '/users', register);
   }
 
-
   isAuthenticated(): Observable<boolean> {
     return this.auth$.pipe(map((auth) => Boolean(auth)));
   }
@@ -63,7 +62,6 @@ export class AuthService {
       }))
     }));
   }
-
 
   logIn(authRequest: AuthRequest): Observable<User> {
     const authUrl = `${environment.apiUrl}/auth`;
