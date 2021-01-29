@@ -8,21 +8,22 @@
 
   <ng-container *ngIf="show">
     <form #newUserNameForm='ngForm' (submit)='updateUserName(newUserNameForm)' class="ion-padding">
-      <ion-item lines="none"class="roundedInput">
-        <ion-label lines="none"class="input" position="floating">Nouveau nom</ion-label>
-        <input type='text' [(ngModel)]='nameNew' name='nameNew' required
-        #userNameNewInput='ngModel' text/>
+      <ion-item lines="none" class="roundedInput">
+        <ion-label lines="none" class="input" position="floating">Nouveau nom</ion-label>
+        <input type='text' [(ngModel)]='nameNew' name='nameNew' required #userNameNewInput='ngModel' text />
         <p *ngIf='userNameNewInput.invalid && userNameNewInput.dirty'>
           Le nom d'utilisateur est invalide
         </p>
-        <button ion-button full type="submit" [disabled]='newUserNameForm.invalid'>Valider</button>
       </ion-item>
+      <button ion-button full type="submit" [disabled]='newUserNameForm.invalid'>Valider</button>
     </form>
   </ng-container>
-  <div class="ion-text-center" text-center>
-    <ion-button (click)='toggleForm()' id="modifyName" color="primary" type="submit">Modifier</ion-button>
-    <ion-button color="danger" type="submit">Supprimer</ion-button>
-  </div>
+  <ng-container>
+    <div class="ion-text-center" text-center>
+      <ion-button (click)='toggleForm()' id="modifyName" color="primary" type="submit">Modifier</ion-button>
+      <ion-button color="danger" type="submit">Supprimer</ion-button>
+    </div>
+  </ng-container>
   <!-- Si le user a déjà créé des balades -->
   <ion-text color="dark" *ngIf='trips?.length > 0'>
     <p class="ion-padding">Ici, tu peux voir les {{user?.tripsCount}} balades que tu as

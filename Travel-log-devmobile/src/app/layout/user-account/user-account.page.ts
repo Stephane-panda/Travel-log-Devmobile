@@ -5,6 +5,7 @@ import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/trip';
 import { UserService } from 'src/app/services/user.service';
 import { NgForm } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -21,10 +22,11 @@ export class UserAccountPage {
   public show: boolean = false;
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private tripService: TripService,
-    private userService:UserService) {}
-  
+    private userService: UserService,
+    public alertController: AlertController) { }
+
   ionViewDidEnter() {
     this.authService.getUser().subscribe(user => {
       this.user = user
@@ -51,7 +53,8 @@ export class UserAccountPage {
       }
       else {
         return 1;
-      }});
+      }
+    });
   }
 
   toggleForm() {
@@ -59,19 +62,29 @@ export class UserAccountPage {
     return;
   }
 
-  updateUserName(form: NgForm){
+  async showAlert() {
+    const alert = await this.alertController.create({
+      header: 'Surppimer le compte?',
+      message: 'La suppression d’une balade est définitive.',
+      buttons: ['Supprimer','Annuler']
+    });
+
+    await alert.present();
+  }
+
+  updateUserName(form: NgForm) {
     if (form.valid) {
-      this.userNewName= new User();
+      this.userNewName = new User();
       this.userNewName.name = this.nameNew;
-      console.log("New name:"+ this.userNewName);
+      console.log("New name:" + this.userNewName);
       this.userService.changeName(this.userNewName, this.user.id).subscribe(user => {
         this.authService.updateUser(user).subscribe();
         this.toggleForm();
       }, err => {
         console.warn('Could not change user name');
-      }); 
+      });
 
     }
-
   }
+  
 }
