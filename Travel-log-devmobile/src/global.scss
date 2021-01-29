@@ -107,3 +107,19 @@ h1 {
     position: relative;
     opacity: 0.4;
 }
+
+
+.buttonCss{
+    .delete{
+        color:var(--ion-color-danger)!important;
+    }
+}
+
+#deleteUser{
+    font-weight: 500;
+    font-size: 12px;
+    text-decoration: underline;
+    padding-right: 15px;
+}
+
+
