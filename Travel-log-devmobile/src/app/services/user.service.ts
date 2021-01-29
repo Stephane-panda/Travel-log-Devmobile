@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AuthService} from 'src/app/auth/auth.service';
+import { AuthService } from 'src/app/auth/auth.service';
 import { TripService } from 'src/app/services/trip.service';
-import { HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../models/user';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,10 +12,10 @@ import { environment } from 'src/environments/environment';
 export class UserService {
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private tripService: TripService,
     private http: HttpClient,
-    ) { }
+  ) { }
 
   getUser() {
     return this.authService.getUser().subscribe();
@@ -25,7 +25,11 @@ export class UserService {
     return this.tripService.getTrips().subscribe();
   }
 
-changeName(newName, userId):Observable<User>{
-    return this.http.patch<User>(environment.apiUrl+'/users/'+ userId, newName);
+  changeName(newName, userId): Observable<User> {
+    return this.http.patch<User>(environment.apiUrl + '/users/' + userId, newName);
+  }
+
+  deleteUser(userId) {
+    return this.http.delete<User>(environment.apiUrl + '/users/' + userId);
   }
 }

@@ -2,29 +2,31 @@
   <ion-text color="dark">
     <h1 class="ion-padding">Bonjour, {{user?.name}} !</h1>
   </ion-text>
+  <ion-button color="danger" (click)='toggleConfirmDelete()' id="deleteUser">Supprimer</ion-button>
+  <ng-container *ngIf="deleteUser">
+    <button ion-button class="submit-btn" (click)="deleteUserAccount()">Oui, supprimer mon compte.</button>
+</ng-container>
   <ion-text color="dark">
     <p class="ion-padding">Nom d'utilisateur : <span style="color:#70747C;">{{user?.name}}</span></p>
   </ion-text>
-
   <ng-container *ngIf="show">
     <form #newUserNameForm='ngForm' (submit)='updateUserName(newUserNameForm)' class="ion-padding">
-      <ion-item lines="none" class="roundedInput">
-        <ion-label lines="none" class="input" position="floating">Nouveau nom</ion-label>
-        <input type='text' [(ngModel)]='nameNew' name='nameNew' required #userNameNewInput='ngModel' text />
-        <p *ngIf='userNameNewInput.invalid && userNameNewInput.dirty'>
+      <ion-item lines="none"class="roundedInput">
+        <ion-label lines="none"class="input" position="floating">Nouveau nom</ion-label>
+        <input type='text' [(ngModel)]='nameNew' name='nameNew' required
+        #userNameNewInput='ngModel' text/>
+        <p color="danger" *ngIf='userNameNewInput.invalid && userNameNewInput.dirty'>
           Le nom d'utilisateur est invalide
         </p>
       </ion-item>
-      <button ion-button full type="submit" [disabled]='newUserNameForm.invalid'>Valider</button>
+      <div class="ion-text-center" text-center>
+        <ion-button color="primary" full type="submit" [disabled]='newUserNameForm.invalid'>Valider</ion-button>
+      </div>
     </form>
   </ng-container>
-  <ng-container>
-    <div class="ion-text-center" text-center>
-      <ion-button (click)='toggleForm()' id="modifyName" color="primary" type="submit">Modifier</ion-button>
-      <ion-button color="danger" type="submit">Supprimer</ion-button>
-    </div>
-  </ng-container>
-  <!-- Si le user a déjà créé des balades -->
+  <div class="ion-text-center" text-center>
+    <ion-button (click)='toggleForm()' id="modifyName" color={{buttonColor}} type="submit">{{buttonName}}</ion-button>
+  </div>
   <ion-text color="dark" *ngIf='trips?.length > 0'>
     <p class="ion-padding">Ici, tu peux voir les {{user?.tripsCount}} balades que tu as
       ajoutées, les modifier ou les supprimer.</p>
@@ -33,7 +35,6 @@
     <h2 class="ion-padding">Toutes mes balades</h2>
     <app-user-trip [trip]="trip" *ngFor="let trip of trips"></app-user-trip>
   </ion-text>
-  <!-- Sinon -->
   <ng-container *ngIf='trips && trips.length === 0'>
     <ion-text color="dark">
       <p class="ion-padding">Ici, tu pourras voir les balades que tu auras ajoutées, les modifier ou les supprimer.</p>
@@ -42,8 +43,8 @@
     <ion-grid>
       <ion-row justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-          <!-- TODO : rediriger sur Ajouter une balade -->
-          <ion-button size="large" type="submit" expand="block">Ajouter une balade</ion-button>
+          <ion-button size="large" type="submit" expand="block" [routerLink]="'/create-trip/'"
+          routerDirection="forward">Ajouter une balade</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

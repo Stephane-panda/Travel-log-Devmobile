@@ -5,8 +5,7 @@ import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/trip';
 import { UserService } from 'src/app/services/user.service';
 import { NgForm } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
-
+import { AlertController } from '@ionic/angular'; 
 
 @Component({
   selector: 'app-user-account',
@@ -20,12 +19,14 @@ export class UserAccountPage {
   userNewName: User;
   nameNew: string;
   public show: boolean = false;
+  public buttonName: any = 'Modifier';
+  public buttonColor: any = "primary";
+  public deleteUser: boolean = false;
 
   constructor(
     private authService: AuthService,
     private tripService: TripService,
-    private userService: UserService,
-    public alertController: AlertController) { }
+    private userService: UserService) { }
 
   ionViewDidEnter() {
     this.authService.getUser().subscribe(user => {
@@ -59,17 +60,20 @@ export class UserAccountPage {
 
   toggleForm() {
     this.show = !this.show;
+    this.buttonColor = !this.buttonColor;
+    if (this.show) {
+      this.buttonName = "Annuler";
+      this.buttonColor = "primary";
+    }
+    else
+      this.buttonName = "Modifier";
+    this.buttonColor = "medium";
     return;
   }
 
-  async showAlert() {
-    const alert = await this.alertController.create({
-      header: 'Surppimer le compte?',
-      message: 'La suppression d’une balade est définitive.',
-      buttons: ['Supprimer','Annuler']
-    });
-
-    await alert.present();
+  toggleConfirmDelete() {
+    this.deleteUser = !this.deleteUser;
+    return;
   }
 
   updateUserName(form: NgForm) {
@@ -83,8 +87,21 @@ export class UserAccountPage {
       }, err => {
         console.warn('Could not change user name');
       });
-
     }
+  }
+
+  deleteUserAccount() {
+    this.userService.deleteUser(this.user.id).subscribe(user => {
+      this.authService.updateUser(user).subscribe();
+    }, err => {
+      console.warn('Could not delete user', err);
+    });
+    this.logOut();
+    console.log("Utilisateur supprimé");
+  }
+
+  logOut() {
+    this.authService.logOut();
   }
   
 }
