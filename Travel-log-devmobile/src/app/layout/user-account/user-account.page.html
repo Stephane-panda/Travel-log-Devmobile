@@ -1,15 +1,10 @@
 <ion-content color="tertiary" class="has-header">
   <div class="ion-text-right">
     <p><a class="deleteLink" (click)='showPrompt()' id="deleteUser">Supprimer mon compte</a></p>
-    <!-- <ion-button class="deleteUserButton" color="danger" (click)='showPrompt()' id="deleteUser">Supprimer</ion-button> -->
   </div>
   <ion-text color="dark">
     <h1 class="ion-padding">Bonjour, {{user?.name}} !</h1>
   </ion-text>
-  <ion-button color="danger" (click)='toggleConfirmDelete()' id="deleteUser">Supprimer</ion-button>
-  <ng-container *ngIf="deleteUser">
-    <button ion-button class="submit-btn" (click)="deleteUserAccount()">Oui, supprimer mon compte.</button>
-  </ng-container>
   <ion-text color="dark">
     <p class="ion-padding">Nom d'utilisateur : <span style="color:#70747C;">{{user?.name}}</span></p>
   </ion-text>
