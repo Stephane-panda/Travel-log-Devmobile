@@ -3,6 +3,9 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/models/user';
 import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/trip';
+import { UserService } from 'src/app/services/user.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-user-account',
@@ -13,8 +16,14 @@ import { Trip } from 'src/app/models/trip';
 export class UserAccountPage {
   user: User;
   trips: Trip[];
+  userNewName: User;
+  nameNew: string;
+  public show: boolean = false;
 
-  constructor(private authService: AuthService, private tripService: TripService) {}
+  constructor(
+    private authService: AuthService, 
+    private tripService: TripService,
+    private userService:UserService) {}
   
   ionViewDidEnter() {
     this.authService.getUser().subscribe(user => {
@@ -43,5 +52,26 @@ export class UserAccountPage {
       else {
         return 1;
       }});
+  }
+
+  toggleForm() {
+    this.show = !this.show;
+    return;
+  }
+
+  updateUserName(form: NgForm){
+    if (form.valid) {
+      this.userNewName= new User();
+      this.userNewName.name = this.nameNew;
+      console.log("New name:"+ this.userNewName);
+      this.userService.changeName(this.userNewName, this.user.id).subscribe(user => {
+        this.authService.updateUser(user).subscribe();
+        this.toggleForm();
+      }, err => {
+        console.warn('Could not change user name');
+      }); 
+
+    }
+
   }
 }
