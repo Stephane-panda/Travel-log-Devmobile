@@ -15,8 +15,7 @@ export class OneTripPage implements OnInit {
   tripid: string;
 
   constructor(private tripService: TripService, private route: ActivatedRoute) {
-    this.tripid = this.route.snapshot.paramMap.get('id');
-  }
+    this.tripid = this.route.snapshot.paramMap.get('id');  }
 
   ionViewDidEnter() {
     this.tripService.getTrip(this.tripid).subscribe((trip) => {
