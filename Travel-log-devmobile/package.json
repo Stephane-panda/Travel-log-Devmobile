@@ -31,6 +31,7 @@
     "@types/leaflet": "^1.5.21",
     "cordova-plugin-geolocation": "^4.1.0",
     "leaflet": "^1.7.1",
+    "leaflet-ant-path": "^1.3.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
