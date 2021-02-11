@@ -78,6 +78,7 @@ export class UserAccountPage {
     return;
   }
 
+  // TODO : VALIDATION UPDATE USERNAME !!
   updateUserName(form: NgForm) {
     if (form.valid) {
       this.userNewName = new User();

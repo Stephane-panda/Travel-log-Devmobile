@@ -13,6 +13,7 @@ export class RegisterPage implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) { }
 
+  //  TODO : VALIDATION REGISTER!!!
   register() {
 
     this.authService.register(this.registerRequest).subscribe((res) => {

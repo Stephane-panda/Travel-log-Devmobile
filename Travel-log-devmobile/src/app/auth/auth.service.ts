@@ -43,7 +43,7 @@ export class AuthService {
   getToken(): Observable<string> {
     return this.auth$.pipe(map((auth) => auth?.token));
   }
-
+//  TODO : VALIDATION UPDATE USER !!!
   updateUser(updatedUser: User): Observable<User> {
     return this.authSource.pipe(first(), switchMap(auth => {
       auth.user = updatedUser;
