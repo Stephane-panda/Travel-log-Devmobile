@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CreateTripPageRoutingModule } from './create-trip-routing.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 import { CreateTripPage } from './create-trip.page';
 
@@ -13,7 +14,8 @@ import { CreateTripPage } from './create-trip.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CreateTripPageRoutingModule
+    CreateTripPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [CreateTripPage]
 })
