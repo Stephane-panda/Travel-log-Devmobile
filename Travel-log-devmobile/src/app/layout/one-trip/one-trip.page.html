@@ -5,7 +5,15 @@
 </ion-header>
 
 <ion-content *ngIf="trip">
+      <ion-button (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+
+       
 <ion-card>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="trip-list"></ion-back-button>
+    </ion-button>
   <ion-label>
             <ion-text line="none" color="primary" style="font-size: 12px;">{{trip?.createdAt | date:'longDate':'fr'}}
             </ion-text>
@@ -15,4 +23,6 @@
             </ion-card-content>
         </ion-label>
 </ion-card>
+<ion-button *ngIf="user?.id === trip?.userId" (click)="Delete()">Supprimer</ion-button>
+<ion-button *ngIf="user?.id === trip?.userId">Modifier</ion-button>
 </ion-content>

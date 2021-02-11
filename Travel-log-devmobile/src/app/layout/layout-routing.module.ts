@@ -45,7 +45,7 @@ const routes: Routes = [
     loadChildren: () => import('./user-account/user-account.module').then( m => m.UserAccountPageModule)
   },
   {
-    path: 'create-place',
+    path: 'create-place/:id',
     loadChildren: () => import('./create-place/create-place.module').then( m => m.CreatePlacePageModule)
   },
   {

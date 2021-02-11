@@ -6,6 +6,8 @@ import { HttpClient, HttpParams} from '@angular/common/http';
 import { CreateTripsRequest } from 'src/app/models/Creat-trips-request';
 import { environment } from 'src/environments/environment';
 
+import { PlaceService } from 'src/app/services/place.service'; // ? 
+
 @Injectable({ providedIn: 'root' })
 
 export class TripService {
@@ -34,8 +36,15 @@ export class TripService {
     return this.http
     .get<Trip[]>(environment.apiUrl + '/trips', {params: paramsUrl});
   }
-  createTrip(createtripRequest: CreateTripsRequest) {
+  createTrip(createtripRequest: CreateTripsRequest): Observable<Trip> {
     // trip count ++
-    return this.http.post(environment.apiUrl + '/trips', createtripRequest);
+    return this.http.post<Trip>(environment.apiUrl + '/trips', createtripRequest);
+
   }
+
+  deleteTrip(tripId){
+    return this.http.post<Trip>(environment.apiUrl + '/trips', {params: tripId}
+);
+}
+
 }
