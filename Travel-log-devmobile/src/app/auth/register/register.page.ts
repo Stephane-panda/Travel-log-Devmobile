@@ -9,28 +9,21 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-registerRequest: RegisterRequest = {name: '', password : ''};
+  registerRequest: RegisterRequest = { name: '', password: '' };
 
+  constructor(private authService: AuthService, private router: Router) { }
 
-  constructor(private  authService: AuthService, private  router: Router) { }
-
-register() {
+  register() {
 
     this.authService.register(this.registerRequest).subscribe((res) => {
 
-    this.authService.logIn({username: this.registerRequest.name , password: this.registerRequest.password}).subscribe(() => {
+      this.authService.logIn({ username: this.registerRequest.name, password: this.registerRequest.password }).subscribe(() => {
 
-    this.router.navigateByUrl('create-trip');
-    });
-
-
+        this.router.navigateByUrl('create-trip');
+      });
     });
   }
 
   ngOnInit() {
-
-
   }
-
-
 }
