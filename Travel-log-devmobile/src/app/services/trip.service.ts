@@ -6,7 +6,7 @@ import { HttpClient, HttpParams} from '@angular/common/http';
 import { CreateTripsRequest } from 'src/app/models/Creat-trips-request';
 import { environment } from 'src/environments/environment';
 
-import { PlaceService } from 'src/app/services/place.service'; // ? 
+import { PlaceService } from 'src/app/services/place.service'; // ?
 
 @Injectable({ providedIn: 'root' })
 

@@ -18,7 +18,7 @@ export class OneTripPage implements OnInit {
   searchValue: string;
   tripid: string;
   user: User;
-  
+
 
   constructor(private tripService: TripService, private route: ActivatedRoute, private authservice: AuthService, private router: Router) {
     this.tripid = this.route.snapshot.paramMap.get('id');
@@ -28,11 +28,14 @@ export class OneTripPage implements OnInit {
   this.tripService.deleteTrip(this.tripid).subscribe((res) => {
 
     this.router.navigate(['trip-list', res.id]);
-
-
- });
-
+});
   }
+/*    Modify() {
+    this.tripService.modifyTrip(this.trip).subscribe((res) => {
+
+    this.router.navigate(['trip-list', res.id]);
+   } */
+
 
   ionViewDidEnter() {
     this.authservice.getUser().subscribe((user) => {

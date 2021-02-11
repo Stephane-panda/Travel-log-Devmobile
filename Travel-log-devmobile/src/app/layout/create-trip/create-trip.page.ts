@@ -19,7 +19,7 @@ createtripRequest: CreateTripsRequest = {title: '', description : ''};
     private auth: AuthService,
     private tripService: TripService,
     // Inject the router
-    private router: Router) { 
+    private router: Router) {
     }
 
     saveTrip() {
@@ -28,7 +28,7 @@ createtripRequest: CreateTripsRequest = {title: '', description : ''};
 
     this.router.navigate(['create-place', res.id]);
 
-    
+
 
     });
 
