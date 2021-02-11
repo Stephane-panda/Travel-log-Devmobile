@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/trip';
 
@@ -7,7 +7,7 @@ import { Trip } from 'src/app/models/trip';
   templateUrl: './trip-list.page.html',
   styleUrls: ['./trip-list.page.scss'],
 })
-export class TripListPage  {
+export class TripListPage {
 
   trips: Trip[];
   searchValue: string;

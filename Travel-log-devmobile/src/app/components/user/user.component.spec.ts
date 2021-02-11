@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { UserTripComponent } from './user.component';
 
 describe('UserComponent', () => {
@@ -9,7 +8,7 @@ describe('UserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserTripComponent ],
+      declarations: [UserTripComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

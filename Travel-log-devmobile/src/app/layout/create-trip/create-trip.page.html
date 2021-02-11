@@ -1,5 +1,5 @@
 <app-header></app-header>
-<ion-content color="tertiary" >
+<ion-content color="tertiary">
   <ion-text color="dark" class="ion-text-center">
     <h1 class="ion-padding">Ajouter une balade</h1>
   </ion-text>
@@ -10,9 +10,10 @@
         <ion-input name="title" type="text" [(ngModel)]="createtripRequest.title" required>
         </ion-input>
       </ion-item>
-      <ion-item lines="none"class="roundedInput" padding>
-        <ion-label lines="none"class="input" position="floating">Description</ion-label>
-        <ion-input lines="none"name="desc" type="text" [(ngModel)]="createtripRequest.description" required></ion-input>
+      <ion-item lines="none" class="roundedInput" padding>
+        <ion-label lines="none" class="input" position="floating">Description</ion-label>
+        <ion-input lines="none" name="desc" type="text" [(ngModel)]="createtripRequest.description" required>
+        </ion-input>
       </ion-item>
     </div>
     <div>

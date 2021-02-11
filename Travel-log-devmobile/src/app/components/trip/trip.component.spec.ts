@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { TripComponent } from './trip.component';
 
 describe('TripComponent', () => {
@@ -9,7 +8,7 @@ describe('TripComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TripComponent ],
+      declarations: [TripComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

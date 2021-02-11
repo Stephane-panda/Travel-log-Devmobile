@@ -27,7 +27,8 @@
     </form>
   </ng-container>
   <div class="ion-text-center" text-center>
-    <ion-button (click)='toggleForm()' id="modifyName" style="font-size: 20px;" color={{buttonColor}} type="submit">{{buttonName}}</ion-button>
+    <ion-button (click)='toggleForm()' id="modifyName" style="font-size: 20px;" color={{buttonColor}} type="submit">
+      {{buttonName}}</ion-button>
   </div>
   <hr style="border-top: 1px solid #E0E0E0; margin: 20px;">
   <ion-text color="dark" *ngIf='trips?.length > 0'>

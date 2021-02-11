@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { LayoutPage } from './layout.page';
 
 describe('LayoutPage', () => {
@@ -9,7 +8,7 @@ describe('LayoutPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LayoutPage ],
+      declarations: [LayoutPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

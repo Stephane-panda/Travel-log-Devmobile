@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { LayoutPage } from './layout.page';
 
 const routes: Routes = [
@@ -31,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: 'one-trip/:id',
-        loadChildren: () => import('./one-trip/one-trip.module').then( m => m.OneTripPageModule)
+        loadChildren: () => import('./one-trip/one-trip.module').then(m => m.OneTripPageModule)
       },
       {
         path: '',
@@ -42,11 +41,11 @@ const routes: Routes = [
   },
   {
     path: 'user-account',
-    loadChildren: () => import('./user-account/user-account.module').then( m => m.UserAccountPageModule)
+    loadChildren: () => import('./user-account/user-account.module').then(m => m.UserAccountPageModule)
   },
   {
     path: 'create-place',
-    loadChildren: () => import('./create-place/create-place.module').then( m => m.CreatePlacePageModule)
+    loadChildren: () => import('./create-place/create-place.module').then(m => m.CreatePlacePageModule)
   }
 
 ];
@@ -55,4 +54,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LayoutPageRoutingModule {}
+export class LayoutPageRoutingModule { }

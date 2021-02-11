@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { CreatePlacePage } from './create-place.page';
 
 describe('CreatePlacePage', () => {
@@ -9,7 +8,7 @@ describe('CreatePlacePage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreatePlacePage ],
+      declarations: [CreatePlacePage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
