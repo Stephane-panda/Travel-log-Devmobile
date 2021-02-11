@@ -1,28 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">
-      <img src="assets/img/logo.png" alt="" style="max-height:35px;">
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-header></app-header>
 <ion-content>
   <ion-text color="dark" class="ion-text-center">
     <h1 class="ion-padding">Créer un compte</h1>
   </ion-text>
   <form #form="ngForm" (ngSubmit)="register()" class="ion-padding">
     <div>
-      <ion-item lines="none"class="roundedInput">
-        <ion-label lines="none"class="input" position="floating">Nom d'utilisateur</ion-label>
-        <ion-input lines="none"name="name" type="text" [(ngModel)]="registerRequest.name" required></ion-input>
+      <ion-item lines="none" class="roundedInput">
+        <ion-label lines="none" class="input" position="floating">Nom d'utilisateur</ion-label>
+        <ion-input lines="none" name="name" type="text" [(ngModel)]="registerRequest.name" required></ion-input>
       </ion-item>
-      <ion-item lines="none"class="roundedInput">
-        <ion-label lines="none"class="input" position="floating">Mot de passe</ion-label>
-        <ion-input lines="none"name="password" type="password" [(ngModel)]="registerRequest.password" required></ion-input>
+      <ion-item lines="none" class="roundedInput">
+        <ion-label lines="none" class="input" position="floating">Mot de passe</ion-label>
+        <ion-input lines="none" name="password" type="password" [(ngModel)]="registerRequest.password" required>
+        </ion-input>
       </ion-item>
-      <ion-item lines="none"class="roundedInput">
-        <ion-label lines="none"class="input" position="floating">Confirmation du mot de passe</ion-label>
-        <ion-input lines="none"name="confirm" type="password" ngModel required></ion-input>
+      <ion-item lines="none" class="roundedInput">
+        <ion-label lines="none" class="input" position="floating">Confirmation du mot de passe</ion-label>
+        <ion-input lines="none" name="confirm" type="password" ngModel required></ion-input>
       </ion-item>
     </div>
     <div class="ion-padding">
