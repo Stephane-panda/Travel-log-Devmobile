@@ -18,7 +18,7 @@ export class LoginPage {
   }
 
   onSubmit(form: NgForm) {
-
+//  TODO : VALIDATION LOGIN !!!
     if (form.invalid) {
       return;
     }
