@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { TripListPage } from './trip-list.page';
 
 const routes: Routes = [
@@ -14,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TripListPageRoutingModule {}
+export class TripListPageRoutingModule { }

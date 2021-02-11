@@ -3,7 +3,8 @@
   <ion-text color="dark">
     <h1 class="ion-padding">Toutes les balade</h1>
   </ion-text>
-  <ion-searchbar placeholder="Chercher une balade..." [(ngModel)]="searchValue" (ionInput)="getListTrips()" (ionClear)="cancelSearch()">
+  <ion-searchbar placeholder="Chercher une balade..." [(ngModel)]="searchValue" (ionInput)="getListTrips()"
+    (ionClear)="cancelSearch()">
   </ion-searchbar>
   <app-trip *ngFor='let trip of trips' [trip]="trip"></app-trip>
 </ion-content>

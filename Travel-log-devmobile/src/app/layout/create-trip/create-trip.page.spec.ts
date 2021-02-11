@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { CreateTripPage } from './create-trip.page';
 
 describe('CreateTripPage', () => {
@@ -9,10 +8,9 @@ describe('CreateTripPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateTripPage ],
+      declarations: [CreateTripPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
-
     fixture = TestBed.createComponent(CreateTripPage);
     component = fixture.componentInstance;
     fixture.detectChanges();

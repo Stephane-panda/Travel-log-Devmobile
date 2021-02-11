@@ -5,7 +5,7 @@ import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/trip';
 import { UserService } from 'src/app/services/user.service';
 import { NgForm } from '@angular/forms';
-import { AlertController } from '@ionic/angular'; 
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-user-account',
@@ -40,7 +40,7 @@ export class UserAccountPage {
   }
 
   getTripsFromUser() {
-    this.trips.filter(function(trips) {
+    this.trips.filter(function (trips) {
       return console.log(trips.userId === this.user.id);
     });
   }
@@ -106,18 +106,18 @@ export class UserAccountPage {
     this.alertController.create({
       header: 'Supprimer le compte?',
       message: 'La suppression d’une balade est définitive.',
-      cssClass:'buttonCss',
+      cssClass: 'buttonCss',
       buttons: [
         {
           text: 'Annuler',
-          cssClass:'annuler',
+          cssClass: 'annuler',
           handler: (data: any) => {
             console.log('Canceled', data);
           }
         },
         {
           text: 'Supprimer',
-          cssClass:'delete',
+          cssClass: 'delete',
           handler: (data: any) => {
             this.deleteUserAccount()
             console.log('super c ok')

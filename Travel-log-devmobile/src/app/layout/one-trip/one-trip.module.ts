@@ -16,4 +16,4 @@ import { ComponentsModule } from 'src/app/components/components.module';
   ],
   declarations: [OneTripPage]
 })
-export class OneTripPageModule {}
+export class OneTripPageModule { }
