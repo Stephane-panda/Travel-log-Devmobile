@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CreatePlacePageRoutingModule } from './create-place-routing.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 import { CreatePlacePage } from './create-place.page';
 
@@ -13,7 +14,8 @@ import { CreatePlacePage } from './create-place.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CreatePlacePageRoutingModule
+    CreatePlacePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [CreatePlacePage]
 })
