@@ -17,12 +17,14 @@ import { IonicStorageModule } from '@ionic/storage';
 //Import pour la géolocalisation
 import { Geolocation } from "@ionic-native/geolocation/ngx";
 
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot(), ],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot(),LeafletModule],
   providers: [
     StatusBar,
     SplashScreen,

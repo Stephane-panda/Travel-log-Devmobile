@@ -6,9 +6,10 @@ import { Geoposition, Geolocation } from '@ionic-native/geolocation/ngx';
 
 //Import pour la map leaflet
 import * as Leaflet from 'leaflet';
+import { latLng, MapOptions, marker, Marker, tileLayer } from 'leaflet';
 import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
-
+import { defaultIcon } from 'src/app/layout/places-map/default-marker';
 
 
 @Component({
@@ -18,13 +19,27 @@ import "leaflet/dist/images/marker-icon-2x.png";
 })
 export class PlacesMapPage implements OnInit {
 
+  mapOptions: MapOptions;
 
-  constructor(private geolocalition: Geolocation) { }
+  constructor(private geolocalition: Geolocation) { 
+    this.mapOptions = {
+      layers: [
+        tileLayer(
+          'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+          { maxZoom: 18 }
+        )
+      ],
+      zoom: 13,
+      center: latLng(46.778186, 6.641524)
+    };
+  }
 
   ngOnInit() { }
 
   //Methode pour la map
   map2: Leaflet.Map;
+  mapMarkers: Marker[];
+  //mapOptions: MapOptions;
 
   ionViewDidEnter() {
     this.leafletMap();
@@ -39,29 +54,19 @@ export class PlacesMapPage implements OnInit {
   });
     this.geolocalition.getCurrentPosition().then((position: Geoposition) => {
       const coords2 = position.coords;
-
       this.map2 = new Leaflet.Map('mapId2').setView([coords2.latitude, coords2.longitude], 16);
       console.log(`L'utilisateur se trouve à la position suivante : ${coords2.latitude}, ${coords2.longitude}`);
-
       Leaflet.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
         attribution: 'edupala.com'
       }).addTo(this.map2);
-      const markPoint1 = Leaflet.marker([coords2.latitude, coords2.longitude],{icon: blueIcon});
-      markPoint1.bindPopup('<p>Je suis ici.</p>');
-      const markPoint2 = Leaflet.marker([46.515865, 6.622970]);
-      markPoint2.bindPopup('<p>Parcours 1.</p>');
-      const markPoint3 = Leaflet.marker([46.506860, 6.626348]);
-      markPoint3.bindPopup('<p>Parcours 2.</p>');
-      const markPoint4 = Leaflet.marker([46.536902, 6.638941]);
-      markPoint4.bindPopup('<p>Parcours 3.</p>');
-      const markPoint5 = Leaflet.marker([46.513588, 6.611101]);
-      markPoint5.bindPopup('<p>Parcours 4.</p>');
+       const markPoint1 = Leaflet.marker([coords2.latitude, coords2.longitude],{icon: blueIcon});
+       markPoint1.bindPopup('<p>Je suis ici.</p>');
       this.map2.addLayer(markPoint1);
-      this.map2.addLayer(markPoint2);
-      this.map2.addLayer(markPoint3);
-      this.map2.addLayer(markPoint4);
-      this.map2.addLayer(markPoint5);
     })
+    this.mapMarkers = [
+      marker([ 46.451068, 6.895295 ], { icon: defaultIcon }),
+      marker([ 46.431068, 6.795295 ], { icon: defaultIcon })
+    ]
   }
 
   ionViewWillLeave() {
