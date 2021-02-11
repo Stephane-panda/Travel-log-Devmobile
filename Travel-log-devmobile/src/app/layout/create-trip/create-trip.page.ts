@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { TripService } from 'src/app/services/trip.service';
-
 import { CreateTripsRequest } from 'src/app/models/Creat-trips-request';
-import { Trip } from 'src/app/models/trip';
 
 @Component({
   selector: 'app-create-trip',
@@ -13,17 +10,15 @@ import { Trip } from 'src/app/models/trip';
   styleUrls: ['./create-trip.page.scss'],
 })
 export class CreateTripPage implements OnInit {
-createtripRequest: CreateTripsRequest = {title: '', description : ''};
+  createtripRequest: CreateTripsRequest = { title: '', description: '' };
   constructor(
-    // Inject the authentication provider.
     private auth: AuthService,
     private tripService: TripService,
     // Inject the router
     private router: Router) {
     }
 
-    saveTrip() {
-
+  saveTrip() {
     this.tripService.createTrip(this.createtripRequest).subscribe((res) => {
 
     this.router.navigate(['create-place', res.id]);
@@ -36,7 +31,7 @@ createtripRequest: CreateTripsRequest = {title: '', description : ''};
 
   ngOnInit() {
   }
-// Add a method to log out.
+
   logOut() {
     console.log('logging out...');
     this.auth.logOut();

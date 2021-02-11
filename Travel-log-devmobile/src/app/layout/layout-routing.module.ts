@@ -5,12 +5,10 @@ import { LayoutPage } from './layout.page';
 
 const routes: Routes = [
   {
-     // Default route
     path: '',
     component: LayoutPage,
     children: [
       {
-        // Route that loads the CreateTrip module
         path: 'create-trip',
         loadChildren: () =>
           import('./create-trip/create-trip.module').then(
@@ -18,7 +16,6 @@ const routes: Routes = [
           ),
       },
       {
-        // Route that loads the Account module
         path: 'my-account',
         loadChildren: () =>
           import('./user-account/user-account.module').then(
@@ -26,12 +23,15 @@ const routes: Routes = [
           ),
       },
       {
-        // Route that loads the TripList module
         path: 'trip-list',
         loadChildren: () =>
           import('./trip-list/trip-list.module').then(
             (m) => m.TripListPageModule
           ),
+      },
+      {
+        path: 'one-trip/:id',
+        loadChildren: () => import('./one-trip/one-trip.module').then( m => m.OneTripPageModule)
       },
       {
         path: '',
@@ -47,10 +47,6 @@ const routes: Routes = [
   {
     path: 'create-place/:id',
     loadChildren: () => import('./create-place/create-place.module').then( m => m.CreatePlacePageModule)
-  },
-  {
-    path: 'one-trip/:id',
-    loadChildren: () => import('./one-trip/one-trip.module').then( m => m.OneTripPageModule)
   }
 
 ];
