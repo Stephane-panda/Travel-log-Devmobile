@@ -6,6 +6,7 @@ import { Trip } from 'src/app/models/trip';
 import { UserService } from 'src/app/services/user.service';
 import { NgForm } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-account',
@@ -27,7 +28,8 @@ export class UserAccountPage {
     private authService: AuthService,
     private tripService: TripService,
     private userService: UserService,
-    public alertController: AlertController) { }
+    public alertController: AlertController,
+    private router: Router) { }
 
   ionViewDidEnter() {
     this.authService.getUser().subscribe(user => {
@@ -40,7 +42,7 @@ export class UserAccountPage {
   }
 
   getTripsFromUser() {
-    this.trips.filter(function (trips) {
+    this.trips.filter(function(trips) {
       return console.log(trips.userId === this.user.id);
     });
   }
@@ -83,7 +85,7 @@ export class UserAccountPage {
     if (form.valid) {
       this.userNewName = new User();
       this.userNewName.name = this.nameNew;
-      console.log("New name:" + this.userNewName.name);
+      console.log('New name:' + this.userNewName.name);
       this.userService.changeName(this.userNewName, this.user.id).subscribe(user => {
         this.authService.updateUser(user).subscribe();
         this.toggleForm();
@@ -120,8 +122,8 @@ export class UserAccountPage {
           text: 'Supprimer',
           cssClass: 'delete',
           handler: (data: any) => {
-            this.deleteUserAccount()
-            console.log('super c ok')
+            this.deleteUserAccount();
+            console.log('super c ok');
             console.log('Saved Information', data);
           }
         }
@@ -133,5 +135,5 @@ export class UserAccountPage {
 
   logOut() {
     this.authService.logOut();
-  }
+    this.router.navigateByUrl('/login'); }
 }
