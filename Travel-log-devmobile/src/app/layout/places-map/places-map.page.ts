@@ -31,6 +31,7 @@ export class PlacesMapPage implements OnInit {
   ionViewDidEnter() {
     this.leafletMap();
   }
+
   leafletMap() {
     let blueIcon = Leaflet.icon({
       iconUrl: 'cerclebleu.png',
@@ -49,6 +50,7 @@ export class PlacesMapPage implements OnInit {
        markPoint1.bindPopup('<p>Je suis ici.</p>');
       this.map2.addLayer(markPoint1);
     })
+    
     this.mapMarkers = [
       marker([ 46.451068, 6.895295 ], { icon: defaultIcon }),
       marker([ 46.431068, 6.795295 ], { icon: defaultIcon })
