@@ -6,7 +6,7 @@ import { Geoposition, Geolocation } from '@ionic-native/geolocation/ngx';
 
 //Import pour la map leaflet
 import * as Leaflet from 'leaflet';
-import { latLng, MapOptions, marker, Marker, tileLayer } from 'leaflet';
+import {MapOptions, marker, Marker } from 'leaflet';
 import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
 import { defaultIcon } from 'src/app/layout/places-map/default-marker';
@@ -31,9 +31,6 @@ export class PlacesMapPage implements OnInit {
   ionViewDidEnter() {
     this.leafletMap();
   }
-
-
-
   leafletMap() {
     let blueIcon = Leaflet.icon({
       iconUrl: 'cerclebleu.png',
@@ -57,10 +54,7 @@ export class PlacesMapPage implements OnInit {
       marker([ 46.431068, 6.795295 ], { icon: defaultIcon })
     ]
   }
-  onMapReady(map: Leaflet.Map) {
-    setTimeout(() => map.invalidateSize(), 0);
-  }
-  
+
   ionViewWillLeave() {
     this.map2.remove();
   }
