@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/trip';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-trip-list',
@@ -12,7 +14,9 @@ export class TripListPage {
   trips: Trip[];
   searchValue: string;
 
-  constructor(private tripService: TripService) { }
+  constructor(private tripService: TripService,
+              private router: Router,
+              private auth: AuthService) { }
 
   ionViewDidEnter() {
     this.getListTrips();
@@ -31,4 +35,9 @@ export class TripListPage {
 
   viewTripDetails() {
   }
+
+  logOut() {
+    console.log('logging out...');
+    this.auth.logOut();
+    this.router.navigateByUrl('/login'); }
 }
