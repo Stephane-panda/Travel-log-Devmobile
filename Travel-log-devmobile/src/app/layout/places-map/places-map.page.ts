@@ -32,6 +32,8 @@ export class PlacesMapPage implements OnInit {
     this.leafletMap();
   }
 
+
+
   leafletMap() {
     let blueIcon = Leaflet.icon({
       iconUrl: 'cerclebleu.png',
@@ -55,7 +57,10 @@ export class PlacesMapPage implements OnInit {
       marker([ 46.431068, 6.795295 ], { icon: defaultIcon })
     ]
   }
-
+  onMapReady(map: Leaflet.Map) {
+    setTimeout(() => map.invalidateSize(), 0);
+  }
+  
   ionViewWillLeave() {
     this.map2.remove();
   }
