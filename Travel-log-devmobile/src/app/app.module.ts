@@ -27,6 +27,7 @@ registerLocaleData(localeFr);
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
