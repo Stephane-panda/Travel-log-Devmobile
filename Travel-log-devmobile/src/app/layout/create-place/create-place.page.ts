@@ -16,7 +16,7 @@ import { Place } from 'src/app/models/place';
 export class CreatePlacePage implements OnInit {
   tripid: string;
 
-createPlaceRequest: Partial<CreatePlaceRequest> = {};
+ createPlaceRequest: CreatePlaceRequest = {name : '', description: '', location: '', tripHref: '', tripId: '', pictureUrl: '' };
 
   constructor(
     // Inject the authentication provider.
@@ -38,7 +38,7 @@ createPlaceRequest: Partial<CreatePlaceRequest> = {};
       this.router.navigate(['create-place', place.tripId]); */
   this.router.navigate(['trip-list']);
     }
-  , ; }
+  ); }
 
   ngOnInit() {
   }
