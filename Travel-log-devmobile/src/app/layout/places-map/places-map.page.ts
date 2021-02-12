@@ -21,25 +21,12 @@ export class PlacesMapPage implements OnInit {
 
   mapOptions: MapOptions;
 
-  constructor(private geolocalition: Geolocation) { 
-    this.mapOptions = {
-      layers: [
-        tileLayer(
-          'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-          { maxZoom: 18 }
-        )
-      ],
-      zoom: 13,
-      center: latLng(46.778186, 6.641524)
-    };
-  }
+  constructor(private geolocalition: Geolocation) {};
 
   ngOnInit() { }
 
-  //Methode pour la map
   map2: Leaflet.Map;
   mapMarkers: Marker[];
-  //mapOptions: MapOptions;
 
   ionViewDidEnter() {
     this.leafletMap();
@@ -48,9 +35,9 @@ export class PlacesMapPage implements OnInit {
   leafletMap() {
     let blueIcon = Leaflet.icon({
       iconUrl: 'cerclebleu.png',
-      iconSize:     [20, 20], // size of the icon
-      iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
-      popupAnchor:  [10, -8] // point from which the popup should open relative to the iconAnchor
+      iconSize:     [20, 20],
+      iconAnchor:   [0, 0],
+      popupAnchor:  [10, -8]
   });
     this.geolocalition.getCurrentPosition().then((position: Geoposition) => {
       const coords2 = position.coords;
