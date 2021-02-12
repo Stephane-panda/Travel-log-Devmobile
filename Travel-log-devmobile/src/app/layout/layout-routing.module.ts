@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'create-place',
     loadChildren: () => import('./create-place/create-place.module').then(m => m.CreatePlacePageModule)
+  },
+  {
+    path: 'places-map',
+    loadChildren: () => import('./places-map/places-map.module').then( m => m.PlacesMapPageModule)
   }
 
 ];
