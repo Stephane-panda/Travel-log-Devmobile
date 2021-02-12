@@ -33,12 +33,12 @@ createPlaceRequest: Partial<CreatePlaceRequest> = {};
 
      createPlace() {
 
-      /* this.placeService.createPlace(this.createPlaceRequest).subscribe((place) => { */
-
-     /* this.router.navigate(['create-place', place.tripId]);  */
+       this.placeService.createPlace(this.createPlaceRequest).subscribe((place) => {
+/*
+      this.router.navigate(['create-place', place.tripId]); */
   this.router.navigate(['trip-list']);
     }
-
+  , ; }
 
   ngOnInit() {
   }
