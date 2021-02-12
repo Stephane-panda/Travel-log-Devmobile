@@ -1,39 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Créer un lieux</ion-title>
+    <ion-title>Create-place-start</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="tertiary" class="has-header">
-  <ion-text color="dark" class="ion-text-center">
-    <h1 class="ion-padding">Créer un lieux</h1>
-  </ion-text>
-  <form id="form" #form="ngForm" (ngSubmit)="createPlace()" class="ion-padding"> 
-    <div>
-      <ion-item lines="none" class="roundedInput" padding>
-        <ion-label class="input" position="floating">Nom du lieu</ion-label>
-        <ion-input name="name" type="text" [(ngModel)]="createPlaceRequest.name" required>
-        </ion-input>
-      </ion-item>
-      <ion-item lines="none" class="roundedInput" padding>
-        <ion-label lines="none" class="input" position="floating">Description</ion-label>
-        <ion-input lines="none" name="desc" type="text" [(ngModel)]="createPlaceRequest.description" required>
-        </ion-input>
-      </ion-item>
-      <ion-item lines="none" class="roundedInput" padding>
-        <ion-label lines="none" class="input" position="floating">Localisation </ion-label>
-        <ion-input lines="none" name="location" type="text" [(ngModel)]="createPlaceRequest.location" required>
-        </ion-input>
-      </ion-item>
-      <ion-item lines="none" class="roundedInput" padding>
-        <ion-label lines="none" class="input" position="floating">Photo d'illustration </ion-label>
-        <ion-input lines="none" name="pictureUrl" type="text" [(ngModel)]="createPlaceRequest.pictureUrl" required>
-        </ion-input>
-      </ion-item>
-    </div>
-    <div>
-      <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" color="primary">Ajouter une balade
-      </ion-button>
-    </div>
-  </form>
+<ion-content>
+
 </ion-content>
