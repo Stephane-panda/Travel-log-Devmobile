@@ -15,6 +15,9 @@ import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
+import { Geolocation } from "@ionic-native/geolocation/ngx";
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 registerLocaleData(localeFr);
 
 @NgModule({
