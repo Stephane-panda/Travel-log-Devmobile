@@ -18,6 +18,8 @@ import { defaultIcon } from 'src/app/layout/places-map/default-marker';
   templateUrl: './places-map.page.html',
   styleUrls: ['./places-map.page.scss'],
 })
+
+
 export class PlacesMapPage implements OnInit {
 
  
@@ -42,16 +44,6 @@ export class PlacesMapPage implements OnInit {
       popupAnchor: [10, -8]
     });
 
-    // this.mapOptions = {
-    //   layers: [
-    //     tileLayer(
-    //       'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    //       { maxZoom: 18 }
-    //     )
-    //   ],
-    //   zoom: 13,
-    //   center: latLng(46.778186, 6.641524)
-    // }
     
     this.geolocalition.getCurrentPosition().then((position: Geoposition) => {
       const coords2 = position.coords;
@@ -69,6 +61,9 @@ export class PlacesMapPage implements OnInit {
       marker([46.451068, 6.895295], { icon: defaultIcon }),
       marker([46.431068, 6.795295], { icon: defaultIcon })
     ]
+    console.log(this.mapMarkers[1])
+   
+    //this.map2.addLayer(this.mapMarkers[1]);
   }
 
   onMapReady(map2: Leaflet.Map) {
