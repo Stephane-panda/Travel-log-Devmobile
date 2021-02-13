@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Create-placet</ion-title>
+    <ion-title>Create-place</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,7 +9,7 @@
   <ion-text color="dark" class="ion-text-center">
     <h1 class="ion-padding">Créer un lieux</h1>
   </ion-text>
-  <form id="form" #form="ngForm" (ngSubmit)="createPlace()" class="ion-padding"> // ?
+  <form id="form" #form="ngForm" (ngSubmit)="savePlace()" class="ion-padding">
     <div>
       <ion-item lines="none" class="roundedInput" padding>
         <ion-label class="input" position="floating">Nom du lieu</ion-label>
@@ -35,7 +35,6 @@
     <div>
       <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block" color="primary">Ajouter une balade
       </ion-button>
-      <ion-button href="trip-list">Arreter</ion-button>
     </div>
   </form>
 
