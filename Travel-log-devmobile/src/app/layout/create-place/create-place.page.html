@@ -13,13 +13,31 @@
     <div>
       <ion-item lines="none" class="roundedInput" padding>
         <ion-label class="input" position="floating">Nom du lieu</ion-label>
-        <ion-input name="name" type="text" [(ngModel)]="createPlaceRequest.name" required>
+        <ion-input name="name" type="text" [(ngModel)]="createPlaceRequest.name" required minlength="3"
+          #name="ngModel">
         </ion-input>
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors.required">
+                      le Nom du lieux est obligatoire.
+                    </div>
+                    <div *ngIf="name.errors.minlength">
+                      le Nom du lieux doit faire au moins 3 charactère.
+                    </div>
+                  </div>
       </ion-item>
       <ion-item lines="none" class="roundedInput" padding>
         <ion-label lines="none" class="input" position="floating">Description</ion-label>
-        <ion-input lines="none" name="desc" type="text" [(ngModel)]="createPlaceRequest.description" required>
+        <ion-input lines="none" name="desc" type="text" [(ngModel)]="createPlaceRequest.description" required
+          minlength="5" #desc="ngModel">
         </ion-input>
+        <div *ngIf="desc.invalid && (desc.dirty || desc.touched)" class="alert alert-danger">
+          <div *ngIf="desc.errors.required">
+            la Description est obligatoire.
+          </div>
+          <div *ngIf="desc.errors.minlength">
+            la Description doit faire au moins 5 charactère.
+          </div>
+        </div>
       </ion-item>
       <ion-item lines="none" class="roundedInput" padding>
         <ion-label lines="none" class="input" position="floating">Localisation </ion-label>
@@ -27,9 +45,22 @@
         </ion-input>
       </ion-item>
       <ion-item lines="none" class="roundedInput" padding>
-        <ion-label lines="none" class="input" position="floating">Photo d'illustration </ion-label>
-        <ion-input lines="none" name="pictureUrl" type="text" [(ngModel)]="createPlaceRequest.pictureUrl" >
+        <ion-label lines="none" class="input" position="floating">url de la Photo d'illustration </ion-label>
+        <ion-input lines="none" name="pictureUrl" type="text" [(ngModel)]="createPlaceRequest.pictureUrl" minlength="10"
+          #pictureUrl="ngModel"
+          pattern="[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)">
         </ion-input>
+         <div *ngIf="pictureUrl.invalid && (pictureUrl.dirty || pictureUrl.touched)" class="alert alert-danger">
+           <div *ngIf="pictureUrl.errors.required">
+             l'url de la Photo d'illustration est obligatoire.
+           </div>
+           <div *ngIf="pictureUrl.errors.minlength">
+             l' url de la Photo d'illustration doit faire au moins 10 charactère.
+           </div>
+            <div *ngIf="name.errors.pattern">
+              l'url de la Photo d'illustration ne ressemble pas à une URL standard
+            </div>
+         </div>
       </ion-item>
     </div>
     <div>

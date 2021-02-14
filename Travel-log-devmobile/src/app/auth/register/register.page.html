@@ -7,16 +7,52 @@
     <div>
       <ion-item lines="none" class="roundedInput">
         <ion-label lines="none" class="input" position="floating">Nom d'utilisateur</ion-label>
-        <ion-input lines="none" name="name" type="text" [(ngModel)]="registerRequest.name" required></ion-input>
+        <ion-input lines="none" name="name" type="text" [(ngModel)]="registerRequest.name" minlength="3"
+          required #name="ngModel" pattern="[a-zA-Z0-9]*" ></ion-input>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+            <div *ngIf="name.errors.required">
+             le Nom d'utilisateur est obligatoire.
+            </div>
+            <div *ngIf="name.errors.minlength">
+              le Nom d'utilisateur doit faire au moins 3 charactère.
+            </div>
+            <div *ngIf="name.errors.pattern">
+              le Nom d'utilisateur comporte un caractère interdit les charactère autoriser sont les alphanumériques.
+            </div>
+
+          </div>
       </ion-item>
       <ion-item lines="none" class="roundedInput">
         <ion-label lines="none" class="input" position="floating">Mot de passe</ion-label>
-        <ion-input lines="none" name="password" type="password" [(ngModel)]="registerRequest.password" required>
+        <ion-input lines="none" name="password" type="password" [(ngModel)]="registerRequest.password" required
+        minlength="4"
+        #password="ngModel">
         </ion-input>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+          <div *ngIf="password.errors.required">
+            le mot de passe est obligatoire.
+          </div>
+          <div *ngIf="password.errors.minlength">
+            le mot de passe doit faire au moins 4 charactère.
+          </div>
+        </div>
       </ion-item>
       <ion-item lines="none" class="roundedInput">
         <ion-label lines="none" class="input" position="floating">Confirmation du mot de passe</ion-label>
-        <ion-input lines="none" name="confirm" type="password" ngModel required></ion-input>
+        <ion-input lines="none" name="confirm" type="password" ngModel #confpass="ngModel" required></ion-input>
+        <div *ngIf="confpass.touched && (confpass.invalid)" class="alert alert-danger">
+
+          <div *ngIf="confpass.errors.required">
+            le mot de passe est obligatoire.
+          </div>
+        </div>
+        <div *ngIf="confpass !== password && (confpass.dirty || confpass.touched)" class="alert alert-danger">
+          <div *ngIf="confpass.errors" >
+            le mot de passe ne corresponds pas à la confirmation de celui-ci.
+          </div>
+        </div>
       </ion-item>
     </div>
     <div class="ion-padding">

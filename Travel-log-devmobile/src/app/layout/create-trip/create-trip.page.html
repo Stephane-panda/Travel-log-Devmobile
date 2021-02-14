@@ -10,13 +10,31 @@
     <div>
       <ion-item lines="none" class="roundedInput" padding>
         <ion-label class="input" position="floating">Titre</ion-label>
-        <ion-input name="title" type="text" [(ngModel)]="createtripRequest.title" required>
+        <ion-input name="title" type="text" [(ngModel)]="createtripRequest.title" required required minlength="3"
+          #name="ngModel">
         </ion-input>
+         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+           <div *ngIf="name.errors.required">
+             le Titre est obligatoire.
+           </div>
+           <div *ngIf="name.errors.minlength">
+             le Titre doit faire au moins 3 charactère.
+           </div>
+         </div>
       </ion-item>
       <ion-item lines="none" class="roundedInput" padding>
         <ion-label lines="none" class="input" position="floating">Description</ion-label>
-        <ion-input lines="none" name="desc" type="text" [(ngModel)]="createtripRequest.description" required>
+        <ion-input lines="none" name="desc" type="text" [(ngModel)]="createtripRequest.description" required
+          minlength="5" #desc="ngModel" >
         </ion-input>
+        <div *ngIf="desc.invalid && (desc.dirty || desc.touched)" class="alert alert-danger">
+          <div *ngIf="desc.errors.required">
+            la Description est obligatoire.
+          </div>
+          <div *ngIf="desc.errors.minlength">
+            la Description doit faire au moins 5 charactère.
+          </div>
+        </div>
       </ion-item>
     </div>
     <div>

@@ -17,7 +17,8 @@
       <div>
         <ion-item lines="none" class="roundedInput">
           <ion-label lines="none" class="input" position="floating">Nouveau nom</ion-label>
-          <ion-input type='text' [(ngModel)]='nameNew' name='nameNew' required #userNameNewInput='ngModel' text>
+          <ion-input type='text' [(ngModel)]='nameNew' name='nameNew' required #userNameNewInput='ngModel' text
+            minlength="3" required  pattern="[a-zA-Z0-9]*">
           </ion-input>
         </ion-item>
       </div>

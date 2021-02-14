@@ -8,7 +8,8 @@
       <ion-item lines="none" class="roundedInput">
         <ion-label lines="none" class="input" position="floating">Nom d'utilisateur</ion-label>
         <ion-input lines="none" inputmode="text" #username="ngModel" required="true" name="username"
-          [(ngModel)]="authRequest.username"></ion-input>
+          [(ngModel)]="authRequest.username" minlength="3"
+          required #name="ngModel" ></ion-input>
       </ion-item>
       <ion-item lines="none" *ngIf="username.invalid && username.touched">
         <ion-text color="danger">Tu dois renseigner un nom d'utilisateur.</ion-text>
@@ -16,7 +17,8 @@
       <ion-item lines="none" class="roundedInput">
         <ion-label lines="none" class="input" position="floating">Mot de passe</ion-label>
         <ion-input lines="none" inputmode="text" #password="ngModel" required="true" type="password" name="password"
-          [(ngModel)]="authRequest.password"></ion-input>
+          [(ngModel)]="authRequest.password" #password="ngModel"></ion-input>
+
       </ion-item>
       <ion-item lines="none" *ngIf="password.invalid && password.touched">
         <ion-text color="danger">Tu dois renseigner un mot de passe</ion-text>
