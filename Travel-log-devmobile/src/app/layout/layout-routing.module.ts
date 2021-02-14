@@ -46,13 +46,18 @@ const routes: Routes = [
   {
     path: 'create-place',
     loadChildren: () => import('./create-place/create-place.module').then(m => m.CreatePlacePageModule)
-  },  {
+  },
+  {
     path: 'create-place-start',
     loadChildren: () => import('./create-place-start/create-place-start.module').then( m => m.CreatePlaceStartPageModule)
   },
   {
     path: 'create-place-end',
     loadChildren: () => import('./create-place-end/create-place-end.module').then( m => m.CreatePlaceEndPageModule)
+  },
+  {
+    path: 'places-map',
+    loadChildren: () => import('./places-map/places-map.module').then( m => m.PlacesMapPageModule)
   }
 
 

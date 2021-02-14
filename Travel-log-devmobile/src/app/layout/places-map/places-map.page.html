@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+     Carte des balades
+    </ion-title>
+  </ion-toolbar>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <div id="mapId2" class="leaflet-map" leaflet (leafletMapReady)="onMapReady($event)" style="width: 100%; height: 100%"></div>
+</ion-content>
