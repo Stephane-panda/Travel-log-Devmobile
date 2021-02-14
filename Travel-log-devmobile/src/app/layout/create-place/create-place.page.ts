@@ -3,8 +3,8 @@ import { CreatePlaceRequest } from 'src/app/models/Creat-place-request';
 import { Router } from '@angular/router';
 import { PlaceService } from 'src/app/services/place.service';
 import { QimgImage } from '../../models/qimg-image';
-/* import { PictureProvider } from '../../services/picture/picture.service'; */
-/* import { Camera, CameraOptions } from '@ionic-native/camera/ngx'; */
+// /* import { PictureProvider } from '../../services/picture/picture.service'; */
+// /* import { Camera, CameraOptions } from '@ionic-native/camera/ngx'; */
 @Component({
   selector: 'app-create-place',
   templateUrl: './create-place.page.html',
