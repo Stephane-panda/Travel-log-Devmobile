@@ -1,13 +1,13 @@
-import { Point, GeoJsonObject, Position } from 'geojson';
+/* import { Point, GeoJsonObject, Position } from 'geojson'; */
 export class Place {
   id: string;
   href: string;
   name: string;
   description: string;
-  location: {
+  location: string /* {
     type: Point;
     coordinates: Position;
-}; // GeoJsonPoint
+} */; // GeoJsonPoint
   tripId: string;
   tripHref: string;
   pictureUrl: string ;
