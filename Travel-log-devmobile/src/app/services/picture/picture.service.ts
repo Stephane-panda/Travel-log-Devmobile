@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+/* import { Camera, CameraOptions } from '@ionic-native/camera/ngx'; */
 import { Observable, from } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 
@@ -13,7 +13,7 @@ import { QimgImage } from '../../models/qimg-image';
 @Injectable({ providedIn: 'root' })
 export class PictureProvider {
 
-  constructor(private camera: Camera, private http: HttpClient) {
+  constructor(/* private camera: Camera,  */private http: HttpClient) {
     console.log('Hello PictureService Provider');
     console.log('@@@ http client', !!this.http);
   }
@@ -25,9 +25,9 @@ export class PictureProvider {
    * has been taken and successfully uploaded to the qimg API. An error may be
    * emitted instead if the user does not take a picture of if the upload fails.
    */
-  takeAndUploadPicture(): Observable<QimgImage> {
-
-    // Take a picture.
+  takeAndUploadPicture() { /* : Observable<QimgImage> {
+ */
+   /*  // Take a picture.
     // This creates an observable of picture data.
     const pictureData$ = this.takePicture();
 
@@ -41,7 +41,7 @@ export class PictureProvider {
     const debug$ = uploadedImage$.pipe(tap(image => console.log(`Successfully uploaded picture to ${image.url}`)));
 
     // Return the observable stream.
-    return debug$;
+    return debug$; */
   }
 
   /**
@@ -51,7 +51,7 @@ export class PictureProvider {
    * once the picture has been taken. An error may be emitted instead if the
    * user does not take a picture.
    */
-  private takePicture(): Observable<string> {
+  private takePicture() {/* : Observable<string> {
 
     // Prepare camera options.
     const options: CameraOptions = {
@@ -67,7 +67,7 @@ export class PictureProvider {
     const pictureDataPromise = this.camera.getPicture(options);
 
     // Convert the promise to an observable and return it.
-    return from(pictureDataPromise);
+    return from(pictureDataPromise); */
   }
 
   /**
